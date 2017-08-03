@@ -1,0 +1,43 @@
+<div class='panel panel-primary'>
+	
+	<div class='panel-heading'>
+	{{ pageTitle }}
+	</div>
+	
+	<div class='panel-body'>
+		
+		<div class='row'>
+			<div class='col-md-2'>Filter by Unit:</div>
+			<div class='col-md-4'>
+				<input type='text' />
+			</div>
+		</div>
+		
+		<div class="row"></div><br>
+		
+		<div class='table-responsive' style="overflow-x:auto;">
+			<table class="table table-striped table-hover table-responsive">
+				<thead>
+					<tr style="color:black">
+						<th>Employee Number</th>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>DateOfBirth</th>
+						<th>TelephoneNumber</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let employ of employee">
+						<td a [routerLink]="['/details',employ.Id]">{{employ.Number}}</td>
+						<td a [routerLink]="['/details' ]">{{employ.Fname}}</td>
+						<td a [routerLink]="['/details']">{{employ.Lname}}</td>
+						<td a [routerLink]="['/details']">{{employ.DOB}}</td>
+						<td a [routerLink]="['/details']">{{employ.TelphoneNo}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+
+</div>

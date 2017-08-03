@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="data-unit" transaction-type="JTA">
+
+		<!--We expect a datasource to be bound to the JNDI following jndi name. -->
+		<!--Usually this is done through the admin console of the application server -->
+		<jta-data-source>java:jboss/env/datasources/umd</jta-data-source>
+
+		<class>nl.sogeti.com.domain.AbstractEntity</class>
+		<class>nl.sogeti.com.domain.Action</class>
+		<class>nl.sogeti.com.domain.Address</class>
+		<class>nl.sogeti.com.domain.Assignment</class>
+		<class>nl.sogeti.com.domain.Branche</class>
+		<class>nl.sogeti.com.domain.Certificate</class>
+		<class>nl.sogeti.com.domain.Client</class>
+		<class>nl.sogeti.com.domain.Contact</class>
+		<class>nl.sogeti.com.domain.Conversation</class>
+		<class>nl.sogeti.com.domain.Course</class>
+		<class>nl.sogeti.com.domain.CourseEntry</class>
+		<class>nl.sogeti.com.domain.DateSetting</class>
+		<class>nl.sogeti.com.domain.Division</class>
+		<class>nl.sogeti.com.domain.Employee</class>
+		<class>nl.sogeti.com.domain.EmployeeExpertise</class>
+		<class>nl.sogeti.com.domain.EmployeeFields</class>
+		<class>nl.sogeti.com.domain.Expertise</class>
+		<class>nl.sogeti.com.domain.ExpertiseCategory</class>
+		<class>nl.sogeti.com.domain.Fields</class>
+		<class>nl.sogeti.com.domain.EmployeeFile</class>
+		<class>nl.sogeti.com.domain.GrowModelElement</class>
+		<class>nl.sogeti.com.domain.GrowModelTab</class>
+		<class>nl.sogeti.com.domain.Holiday</class>
+		<class>nl.sogeti.com.domain.Person</class>
+		<class>nl.sogeti.com.domain.Planning</class>
+		<class>nl.sogeti.com.domain.RankingItem</class>
+		<class>nl.sogeti.com.domain.RelationManager</class>
+		<class>nl.sogeti.com.domain.Role</class>
+		<class>nl.sogeti.com.domain.Settings</class>
+		<class>nl.sogeti.com.domain.Unit</class>
+		<class>nl.sogeti.com.domain.User</class>
+		<class>nl.sogeti.com.domain.Experience</class>
+		<class>nl.sogeti.com.domain.ClientAttachment</class>
+		<class>nl.sogeti.com.domain.Colour</class>
+		<class>nl.sogeti.com.domain.PerformanceIndicators</class>
+		<class>nl.sogeti.com.domain.ProfessionalIndicators</class>
+		<class>nl.sogeti.com.domain.SEIAssessment</class>
+		<class>nl.sogeti.com.domain.SelectList</class>
+		<class>nl.sogeti.com.domain.SelectListItem</class>
+		<class>nl.sogeti.com.domain.SogetiAttachment</class>
+		<class>nl.sogeti.com.domain.CalculatedPerformanceIndicators</class>
+		<class>nl.sogeti.com.domain.Information</class>
+		<class>nl.sogeti.com.domain.ImportDate</class>
+		<class>nl.sogeti.com.domain.StamgegRawData</class>
+		<class>nl.sogeti.com.domain.OmzetgegRawData</class>
+		<class>nl.sogeti.com.domain.UrengegRawData</class>
+		<class>nl.sogeti.com.domain.ProfessionalsBonus</class>
+		<class>nl.sogeti.com.domain.ProfessionalsTantieme</class>
+		<class>nl.sogeti.com.domain.ProfessionalsYP</class>
+		<class>nl.sogeti.com.domain.WorkingDays</class>
+		<class>nl.sogeti.com.domain.MedDataRawData</class>
+		<class>nl.sogeti.com.domain.MedDvBRawData</class>
+		<class>nl.sogeti.com.domain.SEIImportStatus</class>
+		<class>nl.sogeti.com.domain.LoginData</class>
+		<class>nl.sogeti.com.domain.HelpInfo</class>
+		<class>nl.sogeti.com.domain.BuildHistory</class>
+		<class>nl.sogeti.com.domain.CSVFile</class>
+		<class>nl.sogeti.com.domain.StrategieAttachment</class>
+		<class>nl.sogeti.com.domain.ReportHistory</class>
+		<class>nl.sogeti.com.domain.ReportColumns</class>
+		<class>nl.sogeti.com.domain.UploadedDocuments</class>
+		<class>nl.sogeti.com.domain.Sogetilevalbenchavg</class>
+		<class>nl.sogeti.com.domain.Functionilevalbenchavg</class>
+		<class>nl.sogeti.com.domain.Divisionlevalbenchavg</class>
+		<class>nl.sogeti.com.domain.Unitlevalbenchavg</class>
+		<class>nl.sogeti.com.domain.SEILevelAverage</class>
+		<class>nl.sogeti.com.domain.LastSelectedUnit</class>
+		<class>nl.sogeti.com.domain.Projects</class>
+		<class>nl.sogeti.com.domain.Grade</class>
+		<class>nl.sogeti.com.domain.MedDataLine</class>
+		<class>nl.sogeti.com.domain.MedDvBLine</class>
+		<class>nl.sogeti.com.domain.MedContrLine</class>
+        <class>nl.sogeti.com.domain.HolidayLine</class>
+        <class>nl.sogeti.com.domain.FamilyLine</class>
+        <class>nl.sogeti.com.domain.CourseLine</class>
+        <class>nl.sogeti.com.domain.StampGEGLine</class>
+		<class>nl.sogeti.com.domain.OmzetGEGLine</class>
+	 	<class>nl.sogeti.com.domain.UrenGEGLine</class>
+	 	<class>nl.sogeti.com.domain.ProjectLine</class>
+	 	<class>nl.sogeti.com.domain.GradeLine</class>
+		
+		<properties>
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.format_sql" value="false" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="update"/> -->
+			<!-- <property name="jboss.entity.manager.factory.jndi.name" value="java:jboss/umdEntityManagerFactory" />
+         	<property name="jboss.entity.manager.jndi.name" value="java:/umdEntityManager"/> -->
+         	
+         	
+		</properties>
+		
+	</persistence-unit>
+</persistence>

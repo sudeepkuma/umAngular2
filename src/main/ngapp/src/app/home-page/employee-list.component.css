@@ -1,0 +1,26 @@
+
+.table-hover thead tr:hover th, .table-hover tbody tr:hover td {
+    background-color: #FFA07A;
+}
+thead{
+    background-color: 			black;
+}
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+    
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+ .panel-heading {
+  background-color: #A93226;
+  height: 50%;
+}
