@@ -1,6 +1,6 @@
 
 .table-hover thead tr:hover th, .table-hover tbody tr:hover td {
-    background-color: #FFA07A;
+    background-color: lightgray;
 }
 thead{
     background-color: 			black;
@@ -23,4 +23,7 @@ th, td {
  .panel-heading {
   background-color: #A93226;
   height: 50%;
+}
+.container{
+     margin-top: 60px;
 }

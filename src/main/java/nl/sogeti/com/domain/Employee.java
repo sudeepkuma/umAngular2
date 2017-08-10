@@ -607,6 +607,7 @@ public class Employee extends AbstractEntity implements Comparable<Employee> {
 		this(user.getEmployee(), user.getSettings());
 	}
 
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -808,6 +809,7 @@ public class Employee extends AbstractEntity implements Comparable<Employee> {
 	 *            the new data (s)he left Sogeti
 	 */
 	public void setEndDate(Date endDate) {
+		
 		this.endDate = copy(endDate);
 	}
 
@@ -2637,5 +2639,49 @@ public class Employee extends AbstractEntity implements Comparable<Employee> {
 	public void setUmName(String umName) {
 		this.umName = umName;
 	}
-
+	
+	/**
+	 * Gets the age.
+	 * 
+	 * @param start
+	 *            the start
+	 * @param end
+	 *            the end
+	 * @return the age
+	 */
+	private static int getAge(Date start, Date end) {
+		// TODO use only one implementation, for this age calculation, there is
+		// also
+		// an age calculator in this project...
+		int age = 0;
+		Calendar from = Calendar.getInstance();
+		Calendar to = Calendar.getInstance();
+		if (start != null) {
+			to.setTime(end);
+			from.setTime(start);
+			if (from.after(to)) {
+				throw new IllegalArgumentException("Age can't be negative");
+			}
+			age = to.get(Calendar.YEAR) - from.get(Calendar.YEAR);
+			if (to.get(Calendar.DAY_OF_YEAR) < from.get(Calendar.DAY_OF_YEAR)) {
+				age -= 1;
+			}
+		}
+		return age;
+	}
+	/**
+	 * Gets the age.
+	 * 
+	 * @return The age of the employee
+	 */
+	public static int getAge(Date start) {
+		return getAge(start, new Date());
+	}
+	public int getServiceYears() {
+		if (endDate == null) {
+			return getAge(startDate);
+		} else {
+			return getAge(startDate, endDate);
+		}
+	}
 }

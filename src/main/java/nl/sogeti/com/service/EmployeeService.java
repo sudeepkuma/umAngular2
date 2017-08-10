@@ -39,35 +39,31 @@ public Response listOfEmployees(){
 		JSONObject jsnObj = new JSONObject();
 		jsnObj.put("Id",emp.getId());
         jsnObj.put("Number", emp.getNumber());
-		//jsnObj.put("Name", emp.getName());
         jsnObj.put("Fname", emp.getFirstName());
         jsnObj.put("Lname",emp.getLastName());
         jsnObj.put("DOB",emp.getBirthDate());
         jsnObj.put("TelphoneNo",emp.getTelephoneNumber());
+		jsnObj.put("Age",emp.getAge());
+        jsnObj.put("Gender",emp.getGender());
+        jsnObj.put("StartDate", emp.getStartDate());
+        jsnObj.put("Service Years", emp.getServiceYears());
+        jsnObj.put("FTE", emp.getFte()/100);
+        jsnObj.put("Function_Level", emp.getFunctionLevel());
+        jsnObj.put("Function_Name", emp.getFunctionName());
+        jsnObj.put("Base Salary", emp.getBaseSalary());
+        jsnObj.put("Bonus", emp.getBonus());
+        jsnObj.put("Performance Bonus", emp.getPerformanceBonus());
+        jsnObj.put("TimesSick", emp.getTimesSick());
+        jsnObj.put("SickDays", emp.getSickDays());
+        jsnObj.put("VakantieWettelijk", emp.getVakantieWettelijk());
+        jsnObj.put("VakantieBovenWettelijk", emp.getVakantieBovenWettelijk());
+        jsnObj.put("LeaseAuto", emp.getLeaseCarName());
+        jsnObj.put("LeaseCarAmount", emp.getLeaseAmount());
+        jsnObj.put("Einde_contract", emp.getEinde_contract());
         
 		jsonArray.put(jsnObj);
 	}
 	String responseJson = jsonArray.toString();
 	return Response.status(200).entity(responseJson).build();
 }
-
-@GET
-@Path("/employee/{Id}")
-@Produces(MediaType.APPLICATION_JSON)
-public Response getEmployee(@PathParam("Id")Long employeeId){
-	System.out.println("value of employee Id"+employeeId );
-	Employee employee = this.employeeDAO.getEmployee(employeeId);
-	System.out.println("Employee are" + employee.getFirstName());
-	JSONArray jsonArray = new JSONArray();
-	JSONObject jsnObj = new JSONObject();
-	jsnObj.put("Number", employee.getNumber());
-	jsnObj.put("Fname", employee.getFirstName());
-	jsonArray.put(jsnObj);
-	String responseJson = jsonArray.toString();
-	return Response.status(200).entity(responseJson).build();
-	
-}
-
-
-
 }

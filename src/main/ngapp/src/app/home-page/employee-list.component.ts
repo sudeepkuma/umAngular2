@@ -7,11 +7,12 @@ import 'rxjs/add/operator/toPromise';
 
 @Component( {
     selector: 'emp-list',
-    templateUrl: './employee-list.component.html'
+    templateUrl: './employee-list.component.html',
+    styleUrls : ['employee-list.component.css']
 })
 
 export class EmployeeListComponent implements OnInit {
-    pageTitle: string = 'List Of Employees ';
+    pageTitle: string = 'List Of Employees';
     employee : IEmployee[];
     errorMessage : string;
     

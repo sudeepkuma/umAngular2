@@ -5,5 +5,13 @@
     width: 100%;
    padding-bottom: 58px;
 }
-
-
+.tabset{
+  background-color: 	tomato;
+}
+.tab-pills{
+  background-color: 	tomato;
+}
+.tab-content{
+  margin-top: 5px;
+    clear: none;
+}

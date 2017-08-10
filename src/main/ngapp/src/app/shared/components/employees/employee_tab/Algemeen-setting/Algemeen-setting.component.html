@@ -1,0 +1,129 @@
+<div class="container">
+<div class = "row">
+<div class="col-md-5">
+    <div class = "panel panel-default" >
+   <div class = "panel-heading">
+      <h3 class = "panel-title" style="font-weight: bold;font-family: Arial, Helvetica, sans-serif">
+        Personalia
+      </h3>
+   </div>
+   
+   <div class = "panel-body">
+    <div class="row">
+        <div class="col-md-3">Leeftijd:</div>
+        <div class="col-md-2">{{employe.Age}}</div>
+    </div>
+     <div class="row">
+        <div class="col-md-3">Geslacht:</div>
+        <div class="col-md-2">{{employe.Gender}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Geboren:</div>
+        <div class="col-md-2"><span class="text-nowrap">{{employe.DOB | date}}</span></div>
+    </div>
+</div>
+            
+    </div>
+</div>
+<div class="col-md-5">
+                   <div class = "panel panel-default">
+   <div class = "panel-heading">
+     <h3 class = "panel-title" style="font-weight: bold;font-family: Arial, Helvetica, sans-serif">
+         Dienstverband
+      </h3>
+   </div>
+   
+   <div class = "panel-body">
+    <div class="row">
+        <div class="col-md-3"><span class="text-nowrap">Datum in Dienst:</span></div>
+        <div class="col-md-2" ><span class="text-nowrap">{{employe.StartDate | date}}</span></div>
+    </div>
+        <div class="row">
+        <div class="col-md-3">Dienstjaren:</div>
+        <div class="col-md-2">{{employe.Service_Years}}</div>
+    </div>
+        <div class="row">
+        <div class="col-md-3">Dienstverband:</div>
+        <div class="col-md-2">{{employe.FTE}}</div>
+    </div>
+     <div class="row">
+        <div class="col-md-3">Functie:</div>
+        <div class="col-md-2"><span class="text-nowrap">{{employe.Function_Level}}&nbsp;{{employe.Function_Name}}</span></div>
+    </div>
+     <div class="row">
+        <div class="col-md-3">Beloningsbudget:</div>
+        <div class="col-md-2">{{employe.Base_Salary}}</div>
+    </div>
+     <div class="row">
+        <div class="col-md-3"><span class="text-nowrap">Prestatie bonus:</span></div>
+        <div class="col-md-2">{{employe.Bonus}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Perf. bonus:</div>
+        <div class="col-md-2">{{employe.Performance_Bonus}}</div>
+    </div>
+
+   </div>  
+    </div>
+</div>
+
+</div>
+
+<div class = "row">
+<div class="col-md-5">
+    <div class = "panel panel-default">
+   <div class = "panel-heading">
+      <h3 class = "panel-title" style="font-weight: bold;font-family: Arial, Helvetica, sans-serif">
+       Algemene informatie
+      </h3>
+   </div>
+   
+   <div class = "panel-body">
+   <textarea cols="50" rows="8" value="Algemeen"></textarea>
+    </div>
+            
+    </div>
+</div>
+<div class="col-md-5" >
+<div class = "panel panel-default">
+<div class = "panel-heading">
+      <h3 class = "panel-title" style="font-weight: bold;font-family: Arial, Helvetica, sans-serif">
+      Overige
+      </h3>
+</div>
+   
+   <div class = "panel-body">
+    <div class="row">
+        <div class="col-md-4">Ziekmeldingen:</div>
+        <div class="col-md-1">{{employe.TimesSick}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">Ziektedagen:</div>
+        <div class="col-md-1">{{employe.SickDays}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"><span class="text-nowrap">Vak. Uren (wet):</span></div>
+        <div class="col-md-1">{{employe.VakantieWettelijk}}</div>
+    </div>
+   <div class="row">
+        <div class="col-md-4"><span class="text-nowrap">Vak Uren (bov. wet):</span></div>
+        <div class="col-md-1">{{employe.VakantieBovenWettelijk}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Lease Auto:</div>
+        <div class="col-md-2"><span class="text-nowrap">{{employe.LeaseAuto}}</span></div>
+    </div>
+     <div class="row">
+        <div class="col-md-4"><span class="text-nowrap">Lease Bedrag:</span></div>
+        <div class="col-md-1">{{employe.LeaseCarAmount}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"><span class="text-nowrap">Einde Contract Datum:</span></div>
+        <div class="col-md-1"><span class="text-nowrap">{{employe.Einde_contract | date}}</span></div>
+    </div>
+   </div>  
+    </div>
+</div>
+
+</div>
+</div>
