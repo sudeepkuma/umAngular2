@@ -3,10 +3,16 @@ import {EmployeeService} from '../../services/employee.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { IEmployee } from '../../models/employee';
+import { EmployeeListComponent } from '../../../home-page/employee-list.component'; 
+import {AlgemeenSettingComponent} from './employee_tab/algemeen-setting/algemeen-setting.component';
+import {InzetComponent} from './employee_tab/Inzet/inzet.component';
 
 @Component({
   selector: 'employee-detail',
-  templateUrl: 'employee-detail.component.html'
+
+  templateUrl: 'employee-detail.component.html',
+  styleUrls: ['./employee-detail.component.css']
+
 
 })
 

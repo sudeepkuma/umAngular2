@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
     templateUrl: './nav-bar.component.html'
 })
 export class NavBar {
-    pageTitle: string = 'UMDashboard';
+    pageTitle: string = 'UM Dashboard';
     myLocalStorage;
 }

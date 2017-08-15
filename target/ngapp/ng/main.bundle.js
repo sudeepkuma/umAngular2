@@ -1,10 +1,31 @@
 webpackJsonp([1,4],{
 
-/***/ 102:
+/***/ 100:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(114);
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
+}
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 107:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -20,9 +41,9 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'pm-app',
-        template: __webpack_require__(162),
+        template: __webpack_require__(175)
     })
 ], AppComponent);
 
@@ -30,23 +51,28 @@ AppComponent = __decorate([
 
 /***/ }),
 
-/***/ 103:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_page_employee_list_component__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shared_components_settings_settings_component__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_components_admin_admin_component__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_page_nav_bar_component__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_components_settings_algemene_component__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_services_employee_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__shared_components_employees_employee_detail_component__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_tabs__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_tabs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_tabs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_routing__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_page_employee_list_component__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_components_settings_settings_component__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_components_admin_admin_component__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__home_page_nav_bar_component__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_components_settings_algemene_component__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__shared_components_employees_employee_tab_algemeen_setting_Algemeen_setting_component__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__shared_components_employees_employee_detail_component__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__shared_components_employees_employee_tab_Inzet_inzet_component__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__shared_services_employee_service__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common__ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -67,17 +93,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
-        declarations: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_6__home_page_employee_list_component__["a" /* EmployeeListComponent */], __WEBPACK_IMPORTED_MODULE_6__home_page_employee_list_component__["a" /* EmployeeListComponent */], __WEBPACK_IMPORTED_MODULE_7__shared_components_settings_settings_component__["a" /* SettingComponent */], __WEBPACK_IMPORTED_MODULE_8__shared_components_admin_admin_component__["a" /* AdminComponent */], __WEBPACK_IMPORTED_MODULE_9__home_page_nav_bar_component__["a" /* NavBar */], __WEBPACK_IMPORTED_MODULE_10__shared_components_settings_algemene_component__["a" /* AlgemeneComponent */], __WEBPACK_IMPORTED_MODULE_12__shared_components_employees_employee_detail_component__["a" /* EmployeeDetailComponent */]],
-        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_4__app_routing__["a" /* routing */]],
-        providers: [__WEBPACK_IMPORTED_MODULE_11__shared_services_employee_service__["a" /* EmployeeService */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+        declarations: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_7__home_page_employee_list_component__["a" /* EmployeeListComponent */], __WEBPACK_IMPORTED_MODULE_7__home_page_employee_list_component__["a" /* EmployeeListComponent */], __WEBPACK_IMPORTED_MODULE_8__shared_components_settings_settings_component__["a" /* SettingComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__shared_components_admin_admin_component__["a" /* AdminComponent */], __WEBPACK_IMPORTED_MODULE_10__home_page_nav_bar_component__["a" /* NavBar */], __WEBPACK_IMPORTED_MODULE_11__shared_components_settings_algemene_component__["a" /* AlgemeneComponent */], __WEBPACK_IMPORTED_MODULE_13__shared_components_employees_employee_detail_component__["a" /* EmployeeDetailComponent */], __WEBPACK_IMPORTED_MODULE_12__shared_components_employees_employee_tab_algemeen_setting_Algemeen_setting_component__["a" /* AlgemeenSettingComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__shared_components_employees_employee_tab_Inzet_inzet_component__["a" /* InzetComponent */]
+        ],
+        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_5__app_routing__["a" /* routing */], __WEBPACK_IMPORTED_MODULE_4_ng2_tabs__["TabsModule"]],
+        providers: [__WEBPACK_IMPORTED_MODULE_15__shared_services_employee_service__["a" /* EmployeeService */], __WEBPACK_IMPORTED_MODULE_16__angular_common__["DatePipe"]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -85,16 +118,16 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 104:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_page_employee_list_component__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_components_settings_settings_component__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_components_admin_admin_component__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_settings_algemene_component__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_components_employees_employee_detail_component__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_page_employee_list_component__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_components_settings_settings_component__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_components_admin_admin_component__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_settings_algemene_component__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_components_employees_employee_detail_component__ = __webpack_require__(66);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
 
 
@@ -134,11 +167,11 @@ var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule 
 
 /***/ }),
 
-/***/ 105:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavBar; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -149,14 +182,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var NavBar = (function () {
     function NavBar() {
-        this.pageTitle = 'UMDashboard';
+        this.pageTitle = 'UM Dashboard';
     }
     return NavBar;
 }());
 NavBar = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'nav-bar',
-        template: __webpack_require__(164)
+        template: __webpack_require__(177)
     })
 ], NavBar);
 
@@ -164,7 +197,85 @@ NavBar = __decorate([
 
 /***/ }),
 
-/***/ 106:
+/***/ 111:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InzetComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var InzetComponent = (function () {
+    function InzetComponent() {
+    }
+    return InzetComponent;
+}());
+InzetComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'inzet',
+        template: __webpack_require__(180),
+        styles: [__webpack_require__(171)]
+    })
+], InzetComponent);
+
+//# sourceMappingURL=inzet.component.js.map
+
+/***/ }),
+
+/***/ 112:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_employee__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_employee___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__models_employee__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlgemeenSettingComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AlgemeenSettingComponent = (function () {
+    function AlgemeenSettingComponent() {
+    }
+    return AlgemeenSettingComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__models_employee__["IEmployee"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__models_employee__["IEmployee"]) === "function" && _a || Object)
+], AlgemeenSettingComponent.prototype, "employe", void 0);
+AlgemeenSettingComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'algemeen',
+        template: __webpack_require__(181),
+        styles: [__webpack_require__(172)]
+    })
+], AlgemeenSettingComponent);
+
+var _a;
+//# sourceMappingURL=Algemeen-setting.component.js.map
+
+/***/ }),
+
+/***/ 113:
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=employee.js.map
+
+/***/ }),
+
+/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -181,76 +292,162 @@ var environment = {
 
 /***/ }),
 
-/***/ 162:
-/***/ (function(module, exports) {
+/***/ 169:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<nav-bar></nav-bar>\n<div class='container'>\n\t<router-outlet></router-outlet>\n</div>\n"
+exports = module.exports = __webpack_require__(16)();
+// imports
 
-/***/ }),
 
-/***/ 163:
-/***/ (function(module, exports) {
+// module
+exports.push([module.i, "\n.table-hover thead tr:hover th, .table-hover tbody tr:hover td {\n    background-color: lightgray;\n}\nthead{\n    background-color: \t\t\tblack;\n}\ntable, td, th {    \n    border: 1px solid #ddd;\n    text-align: left;\n    \n}\n\ntable {\n    border-collapse: collapse;\n    width: 100%;\n    height: 100%;\n}\n\nth, td {\n    padding: 15px;\n}\n .panel-heading {\n  background-color: #A93226;\n  height: 50%;\n}\n.container{\n     margin-top: 60px;\n}", ""]);
 
-module.exports = "<div class='panel panel-primary'>\n\t\n\t<div class='panel-heading'>\n\t{{ pageTitle }}\n\t</div>\n\t\n\t<div class='panel-body'>\n\t\t\n\t\t<div class='row'>\n\t\t\t<div class='col-md-2'>Filter by Unit:</div>\n\t\t\t<div class='col-md-4'>\n\t\t\t\t<input type='text' />\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t<div class=\"row\"></div><br>\n\t\t\n\t\t<div class='table-responsive' style=\"overflow-x:auto;\">\n\t\t\t<table class=\"table table-striped table-hover table-responsive\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr style=\"color:black\">\n\t\t\t\t\t\t<th>Employee Number</th>\n\t\t\t\t\t\t<th>FirstName</th>\n\t\t\t\t\t\t<th>LastName</th>\n\t\t\t\t\t\t<th>DateOfBirth</th>\n\t\t\t\t\t\t<th>TelephoneNumber</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr *ngFor=\"let employ of employee\">\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Number}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details' ]\">{{employ.Fname}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details']\">{{employ.Lname}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details']\">{{employ.DOB}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details']\">{{employ.TelphoneNo}}</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t\t\n\t</div>\n\n</div>"
+// exports
 
-/***/ }),
 
-/***/ 164:
-/***/ (function(module, exports) {
-
-module.exports = "<div>\n\t<nav class='navbar navbar-primary'>\n\t\t<div class='container-fluid'>\n\n\t\t\t<a class='navbar-brand'>{{pageTitle}}</a>\n\n\t\t\t<ul class='nav navbar-nav'>\n\t\t\t\t<li><a routerLink=\"/home\">Home Page</a></li>\n\t\t\t\t<li><a routerLink=\"/settings\">Instellingen</a></li>\n\t\t\t</ul>\n\n\t\t\t<ul class=\"nav navbar-nav navbar-right\">\n\t\t\t\t<li><a routerLink=\"/admin\"><span\n\t\t\t\t\t\tclass=\"glyphicon glyphicon-user\"></span> Admin</a></li>\n\t\t\t\t<li><a href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span>\n\t\t\t\t\t\tSign Out</a></li>\n\t\t\t</ul>\n\n\t\t</div>\n\t</nav>\n</div>"
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 165:
+/***/ 170:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(16)();
+// imports
+
+
+// module
+exports.push([module.i, ".content {\n     height: 100%; \n   margin-right: 16px;\n   \n    width: 100%;\n   padding-bottom: 58px;\n}\n.tabset{\n  background-color: \ttomato;\n}\n.tab-pills{\n  background-color: \ttomato;\n}\n.tab-content{\n  margin-top: 5px;\n    clear: none;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 171:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(16)();
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 172:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(16)();
+// imports
+
+
+// module
+exports.push([module.i, ".panel-body{\r\n    height: 200px;\r\n    \r\n}\r\n.text-nowrap {\r\n    white-space: nowrap;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 175:
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n<nav-bar></nav-bar>\n<div class='container' >\n\t<router-outlet></router-outlet>\n</div>\n</div>\n"
+
+/***/ }),
+
+/***/ 176:
+/***/ (function(module, exports) {
+
+module.exports = "<div class='panel panel-primary'>\n\t\n\t<div class='panel-heading'>\n\t{{ pageTitle }}\n\t</div>\n\t\n\t<div class='panel-body'>\n\t\t\n\t\t<div class='row'>\n\t\t\t<div class='col-md-2'>Filter by Unit:</div>\n\t\t\t<div class='col-md-4'>\n\t\t\t\t<input type='text' />\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t<div class=\"row\"></div><br>\n\t\t\n\t\t<div class='table-responsive' style=\"overflow-x:auto;\">\n\t\t\t<table class=\"table table-striped table-hover table-responsive\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr style=\"color:white\">\n\t\t\t\t\t\t<th>Employee Number</th>\n\t\t\t\t\t\t<th>FirstName</th>\n\t\t\t\t\t\t<th>LastName</th>\n\t\t\t\t\t\t<th>DateOfBirth</th>\n\t\t\t\t\t\t<th>TelephoneNumber</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr *ngFor=\"let employ of employee\">\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Number}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Fname}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Lname}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.DOB | date}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.TelphoneNo}}</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t\t\n\t</div>\n\n</div>"
+
+/***/ }),
+
+/***/ 177:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n\t<nav class=\"navbar navbar-default\">\n\t\t<div class='container-fluid'>\t\t\n\t\t\t<a class='navbar-brand' style=\"color: tomato;font-family: Arial, Helvetica, sans-serif;font-weight: bold\">{{pageTitle}}</a>\n\t\t\t\t\n\t\t\t<ul class='nav navbar-nav'>\n\t\t\t\t<li><a routerLink=\"/home\"><b style=\"color: black\">Home Page</b></a></li>\n\t\t\t\t<li><a routerLink=\"/settings\"><b style=\"color: black\">Instellingen</b></a></li>\n\t\t\t\t\t\n\t\t\t</ul>\n\n\t\t\t<ul class=\"nav navbar-nav navbar-right\">\n\t\t\t\t<li><a routerLink=\"/admin\"><span\n\t\t\t\t\t\tclass=\"glyphicon glyphicon-user\"></span><b style=\"color: black\"> Admin</b></a></li>\n\t\t\t\t<li><a href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span>\n\t\t\t\t\t\t<b style=\"color: black\">Sign Out</b></a></li>\n\t\t\t</ul>\n\n\t\t</div>\n\t</nav>\n</div>"
+
+/***/ }),
+
+/***/ 178:
 /***/ (function(module, exports) {
 
 module.exports = "<div class='panel panel-primary'>\n\t\n\t<div class='panel-heading'>\n\t{{ admin }}\n\t</div>\n\t\n\t<div class='panel-body'>\n\n\t\t\n\t</div>\n\n\n</div>"
 
 /***/ }),
 
-/***/ 166:
+/***/ 179:
 /***/ (function(module, exports) {
 
-module.exports = "{{employee.Fname}} &nbsp; {{employee.Lname}}\n<script src=\"https://code.jquery.com/jquery-1.11.3.min.js\" type=\"text/javascript\"></script>\n<div class=\"row\">\n<div class=\"col-md-9\"  >\n                \n                    <!-- Nav tabs -->\n                <ul class=\"nav nav-tabs\" style=\"background-color:orange;\"> \n                    <li class=\"active\"><a data-toggle=\"tab\" routerLink=\"#algemene\">Algemeen</a></li>\n                    <li><a data-toggle=\"tab\" routerLink=\"#inzet\">Inzet</a></li>\n                    <li><a data-toggle=\"tab\" href=\"#planning\">Planning</a></li>\n                    <li><a data-toggle=\"tab\" href=\"#sei\">SEI Dialoog</a></li>\n                    <li><a data-toggle=\"tab\" href=\"#gmi\">GMI</a></li>\n                </ul>\n                    <!-- Tab panes -->\n                    <div class=\"tab-content\">\n                        <div class=\"tab-pane fade in active\" id=\"algemene\" >\n                            <h3>HOME</h3>                        \n                         </div>\n                        <div class=\"tab-pane fade\" id=\"inzet\" >\n                            <h3>Inzet</h3>\n                         </div>\n                          <div class=\"tab-pane  fade\" id=\"planning\" >\n                            <h3>Planning</h3>\n                         </div>\n                        <div  class=\"tab-pane fade\" id=\"sei\" >\n                            <h3>SEI</h3>\n                         </div>\n                        <div class=\"tab-pane fade\" id=\"gmi\">\n                            <h3>GMI</h3>                            \n                         </div>\n                    </div>                     \n </div>\n       \n <div class=\"col-md-1\" style=\"border: 1px solid brown\">\n    <h5>{{employee.Number}}</h5>\n    <h5>{{employee.Fname}}</h5>\n    <h5>{{employee.Lname}}</h5>\n    <h5 class=\"\">{{employee.DOB}}</h5>\n</div>\n</div>\n\n               \n\n"
+module.exports = "<b style=\"color:black;font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: x-large\">{{employee.Fname}} &nbsp; {{employee.Lname}}</b>\n<div class=\"row\" style=\"border: 1px solid #F0F0F0\">\n    \n<div class=\"col-md-10\" style=\"border: 1px solid #F0F0F0\" >\n                \n                    <!-- Nav tabs -->\n    <tabset [pills]=\"true\">\n        <tab title=\"Algemeen\">\n          <div class=\"tab-content\">  <algemeen [employe]= \"employee\"></algemeen></div>\n        </tab>\n        <tab title=\"Inzet\">\n            <div class=\"tab-content\"><inzet></inzet></div>\n        </tab>\n        <tab title=\"Planning\" >\n            <div class=\"tab-content\"> Content of the Planning Tab</div>\n        </tab>\n        <tab title=\"SEI-Dialoog\" >\n            <div class=\"tab-content\"> Content of the SEI-Dialoog Tab</div>\n        </tab>\n        <tab title=\"GMI\" >\n             <div class=\"tab-content\">Content of the GMI Tab</div>\n        </tab>\n        <tab title=\"Gesprekken\" >\n            <div class=\"tab-content\"> Content of the Gesprekken Tab</div>\n        </tab>\n        <tab title=\"Acties\" >\n            <div class=\"tab-content\"> Content of the Acties Tab</div>\n        </tab>\n        <tab title=\"Document\" >\n             <div class=\"tab-content\">Content of the Document Tab</div>\n        </tab>\n    </tabset>           \n </div>\n\n <div class=\"col-md-2\" style=\"border: 1px solid black ; font-family: Arial, Helvetica, sans-serif\">\n     <img src=\"\" class=\"rounded mx-auto d-block \" alt=\"Responsive image\">\n    <h5>{{employee.Number}}</h5>\n    <h5>{{employee.Fname}}</h5>\n    <h5>{{employee.Lname}}</h5>\n    <h5>{{employee.TelphoneNo}}</h5>\n    <h5>{{employee.DOB | date}}</h5>\n\n </div>\n\n</div>\n\n               \n\n"
 
 /***/ }),
 
-/***/ 167:
+/***/ 180:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\r\n        <input type=\"button\" value=\"Nieuwe Opdracht\"/>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n        <div class = \"panel panel-default\" style=\"margin-top: 5px\">\r\n\r\n                <div class = \"panel-heading\">\r\n                 Opdracht\r\n                 </div>     \r\n                    <div class = \"panel-body\"> \r\n                     <div class=\"row\">\r\n                         <div class=\"col-md-4\">\r\n                             <div class=\"col-md-2\" style=\"font-weight: bold\">Inzet van:</div>\r\n                             <div class=\"col-md-2\" style=\"font-weight: bold\">\r\n                                 \r\n                             </div>\r\n                         </div>\r\n                          <div class=\"col-md-4\">\r\n                              <div class=\"col-md-2\" style=\"font-weight: bold\">Inzet tot:</div>\r\n                              <div class=\"col-md-2\" style=\"font-weight: bold\">Inzet van:</div>\r\n                          </div>  \r\n                     </div>\r\n                    </div>\r\n                    <div class = \"panel-heading\">\r\n                     Extra informatie over de opdracht\r\n                    </div>                  \r\n                        <div class = \"panel-body\"> \r\n                         body\r\n                        </div>\r\n            </div>\r\n            </div>\r\n        </div>\r\n             \r\n</div>\r\n"
+
+/***/ }),
+
+/***/ 181:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\r\n<div class = \"row\">\r\n<div class=\"col-md-5\">\r\n    <div class = \"panel panel-default\" >\r\n   <div class = \"panel-heading\">\r\n      <h3 class = \"panel-title\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">\r\n        Personalia\r\n      </h3>\r\n   </div>\r\n   \r\n   <div class = \"panel-body\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">Leeftijd:</div>\r\n        <div class=\"col-md-2\">{{employe.Age}}</div>\r\n    </div>\r\n     <div class=\"row\">\r\n        <div class=\"col-md-3\">Geslacht:</div>\r\n        <div class=\"col-md-2\">{{employe.Gender}}</div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">Geboren:</div>\r\n        <div class=\"col-md-2\"><span class=\"text-nowrap\">{{employe.DOB | date}}</span></div>\r\n    </div>\r\n</div>\r\n            \r\n    </div>\r\n</div>\r\n<div class=\"col-md-5\">\r\n                   <div class = \"panel panel-default\">\r\n   <div class = \"panel-heading\">\r\n     <h3 class = \"panel-title\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">\r\n         Dienstverband\r\n      </h3>\r\n   </div>\r\n   \r\n   <div class = \"panel-body\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\"><span class=\"text-nowrap\">Datum in Dienst:</span></div>\r\n        <div class=\"col-md-2\" ><span class=\"text-nowrap\">{{employe.StartDate | date}}</span></div>\r\n    </div>\r\n        <div class=\"row\">\r\n        <div class=\"col-md-3\">Dienstjaren:</div>\r\n        <div class=\"col-md-2\">{{employe.Service_Years}}</div>\r\n    </div>\r\n        <div class=\"row\">\r\n        <div class=\"col-md-3\">Dienstverband:</div>\r\n        <div class=\"col-md-2\">{{employe.FTE}}</div>\r\n    </div>\r\n     <div class=\"row\">\r\n        <div class=\"col-md-3\">Functie:</div>\r\n        <div class=\"col-md-2\"><span class=\"text-nowrap\">{{employe.Function_Level}}&nbsp;{{employe.Function_Name}}</span></div>\r\n    </div>\r\n     <div class=\"row\">\r\n        <div class=\"col-md-3\">Beloningsbudget:</div>\r\n        <div class=\"col-md-2\">{{employe.Base_Salary}}</div>\r\n    </div>\r\n     <div class=\"row\">\r\n        <div class=\"col-md-3\"><span class=\"text-nowrap\">Prestatie bonus:</span></div>\r\n        <div class=\"col-md-2\">{{employe.Bonus}}</div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">Perf. bonus:</div>\r\n        <div class=\"col-md-2\">{{employe.Performance_Bonus}}</div>\r\n    </div>\r\n\r\n   </div>  \r\n    </div>\r\n</div>\r\n\r\n</div>\r\n\r\n<div class = \"row\">\r\n<div class=\"col-md-5\">\r\n    <div class = \"panel panel-default\">\r\n   <div class = \"panel-heading\">\r\n      <h3 class = \"panel-title\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">\r\n       Algemene informatie\r\n      </h3>\r\n   </div>\r\n   \r\n   <div class = \"panel-body\">\r\n   <textarea cols=\"50\" rows=\"8\" value=\"Algemeen\"></textarea>\r\n    </div>\r\n            \r\n    </div>\r\n</div>\r\n<div class=\"col-md-5\" >\r\n<div class = \"panel panel-default\">\r\n<div class = \"panel-heading\">\r\n      <h3 class = \"panel-title\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">\r\n      Overige\r\n      </h3>\r\n</div>\r\n   \r\n   <div class = \"panel-body\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4\">Ziekmeldingen:</div>\r\n        <div class=\"col-md-1\">{{employe.TimesSick}}</div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4\">Ziektedagen:</div>\r\n        <div class=\"col-md-1\">{{employe.SickDays}}</div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4\"><span class=\"text-nowrap\">Vak. Uren (wet):</span></div>\r\n        <div class=\"col-md-1\">{{employe.VakantieWettelijk}}</div>\r\n    </div>\r\n   <div class=\"row\">\r\n        <div class=\"col-md-4\"><span class=\"text-nowrap\">Vak Uren (bov. wet):</span></div>\r\n        <div class=\"col-md-1\">{{employe.VakantieBovenWettelijk}}</div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">Lease Auto:</div>\r\n        <div class=\"col-md-2\"><span class=\"text-nowrap\">{{employe.LeaseAuto}}</span></div>\r\n    </div>\r\n     <div class=\"row\">\r\n        <div class=\"col-md-4\"><span class=\"text-nowrap\">Lease Bedrag:</span></div>\r\n        <div class=\"col-md-1\">{{employe.LeaseCarAmount}}</div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4\"><span class=\"text-nowrap\">Einde Contract Datum:</span></div>\r\n        <div class=\"col-md-1\"><span class=\"text-nowrap\">{{employe.Einde_contract | date}}</span></div>\r\n    </div>\r\n   </div>  \r\n    </div>\r\n</div>\r\n\r\n</div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ 182:
 /***/ (function(module, exports) {
 
 module.exports = "<h1>\r\n\r\nHello\r\n\r\n</h1>"
 
 /***/ }),
 
-/***/ 168:
+/***/ 183:
 /***/ (function(module, exports) {
 
 module.exports = "<div class='panel panel-primary'>\r\n    \r\n    <div class='panel-heading'>\r\n    {{ settings }}\r\n    </div>\r\n    \r\n    <div class='container-fluid'>\r\n              <ul class='nav nav-tabs'>\r\n                  <li class=\"active\"><a data-toggle=\"tab\" routerLink=\"/algemene\">Algemene Settings</a></li>\r\n                  <li><a routerLink=\"/signaleringen\">Signaleringen</a></li>\r\n                  <li><a routerLink=\"/temporaryUnitmanager\">Temporary Unit manager</a></li>                    \r\n              </ul>\r\n        \r\n    </div>\r\n      <div class='container'>\r\n          <router-outlet></router-outlet>\r\n      </div> \r\n\r\n</div>"
 
 /***/ }),
 
-/***/ 205:
+/***/ 220:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(95);
+module.exports = __webpack_require__(100);
 
 
 /***/ }),
 
-/***/ 33:
+/***/ 35:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeeService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -308,7 +505,7 @@ var EmployeeService = (function () {
     return EmployeeService;
 }());
 EmployeeService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], EmployeeService);
 
@@ -317,13 +514,13 @@ var _a;
 
 /***/ }),
 
-/***/ 61:
+/***/ 64:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_employee_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_employee_service__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeeListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -341,7 +538,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var EmployeeListComponent = (function () {
     function EmployeeListComponent(_employeeService) {
         this._employeeService = _employeeService;
-        this.pageTitle = 'List Of Employees ';
+        this.pageTitle = 'List Of Employees';
     }
     EmployeeListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -351,9 +548,10 @@ var EmployeeListComponent = (function () {
     return EmployeeListComponent;
 }());
 EmployeeListComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'emp-list',
-        template: __webpack_require__(163)
+        template: __webpack_require__(176),
+        styles: [__webpack_require__(169)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_employee_service__["a" /* EmployeeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_employee_service__["a" /* EmployeeService */]) === "function" && _a || Object])
 ], EmployeeListComponent);
@@ -363,11 +561,11 @@ var _a;
 
 /***/ }),
 
-/***/ 62:
+/***/ 65:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -383,9 +581,9 @@ var AdminComponent = (function () {
     return AdminComponent;
 }());
 AdminComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'settings',
-        template: __webpack_require__(165),
+        template: __webpack_require__(178),
     })
 ], AdminComponent);
 
@@ -393,14 +591,14 @@ AdminComponent = __decorate([
 
 /***/ }),
 
-/***/ 63:
+/***/ 66:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_employee_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_employee_service__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeeDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -435,9 +633,10 @@ var EmployeeDetailComponent = (function () {
     return EmployeeDetailComponent;
 }());
 EmployeeDetailComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'employee-detail',
-        template: __webpack_require__(166)
+        template: __webpack_require__(179),
+        styles: [__webpack_require__(170)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_employee_service__["a" /* EmployeeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_employee_service__["a" /* EmployeeService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object])
 ], EmployeeDetailComponent);
@@ -447,11 +646,11 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 64:
+/***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlgemeneComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -467,9 +666,9 @@ var AlgemeneComponent = (function () {
     return AlgemeneComponent;
 }());
 AlgemeneComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'algemeneSettings',
-        template: __webpack_require__(167)
+        template: __webpack_require__(182)
     })
 ], AlgemeneComponent);
 
@@ -477,11 +676,11 @@ AlgemeneComponent = __decorate([
 
 /***/ }),
 
-/***/ 65:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -497,9 +696,9 @@ var SettingComponent = (function () {
     return SettingComponent;
 }());
 SettingComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'settings',
-        template: __webpack_require__(168)
+        template: __webpack_require__(183)
     })
 ], SettingComponent);
 
@@ -507,7 +706,7 @@ SettingComponent = __decorate([
 
 /***/ }),
 
-/***/ 94:
+/***/ 99:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -516,31 +715,10 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 94;
+webpackEmptyContext.id = 99;
 
-
-/***/ }),
-
-/***/ 95:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(106);
-
-
-
-
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
-}
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
 
 /***/ })
 
-},[205]);
+},[220]);
 //# sourceMappingURL=main.bundle.js.map

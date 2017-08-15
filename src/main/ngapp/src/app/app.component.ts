@@ -3,7 +3,9 @@ import { EmployeeListComponent } from './home-page/employee-list.component';
 
 @Component( {
     selector: 'pm-app',
-    templateUrl: './app.component.html',
+    templateUrl: './app.component.html'
+    
+    
 })
 
 export class AppComponent {
