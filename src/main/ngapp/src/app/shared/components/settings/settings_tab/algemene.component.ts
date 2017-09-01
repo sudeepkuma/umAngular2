@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-
 @Component( {
     selector: 'algemeneSettings',
-    templateUrl: './algemene.component.html'
+    templateUrl: './algemene.component.html',
+    styleUrls: ['./algemene.component.css']
 })
 
 export class AlgemeneComponent {

@@ -22,6 +22,7 @@ export interface IEmployee {
     LeaseAuto:string;
     LeaseCarAmount:number;
     Einde_contract:string;
+    Client_Name:string;
 
 
 

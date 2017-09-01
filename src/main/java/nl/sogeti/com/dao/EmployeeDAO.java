@@ -20,7 +20,7 @@ public class EmployeeDAO{
 	private EntityManager entityManager;
 
 	public List<Employee> findAllEmployees() {
-		List<Employee> listOfEmployees = getEntityManager().createQuery("select e from Employee e", Employee.class).setMaxResults(19).getResultList();
+		List<Employee> listOfEmployees = getEntityManager().createQuery("select e from Employee e where e.unit = 655", Employee.class).setMaxResults(19).getResultList();
 		return listOfEmployees;
 	}
 	
