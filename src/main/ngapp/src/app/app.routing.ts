@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SettingComponent } from './shared/components/settings/settings.component';
 import { AdminComponent } from './shared/components/admin/admin.component';
-import { AlgemeneComponent } from './shared/components/settings/algemene.component';
+import { AlgemeneComponent } from './shared/components/settings/settings_tab/algemene.component';
 import { EmployeeDetailComponent } from './shared/components/employees/employee-detail.component';
 
 

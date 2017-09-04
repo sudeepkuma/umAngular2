@@ -1,19 +1,15 @@
 <div class='panel panel-primary'>
-    
-    <div class='panel-heading'>
-    {{ settings }}
-    </div>
-    
-    <div class='container-fluid'>
-              <ul class='nav nav-tabs'>
-                  <li class="active"><a data-toggle="tab" routerLink="/algemene">Algemene Settings</a></li>
-                  <li><a routerLink="/signaleringen">Signaleringen</a></li>
-                  <li><a routerLink="/temporaryUnitmanager">Temporary Unit manager</a></li>                    
-              </ul>
-        
-    </div>
-      <div class='container'>
-          <router-outlet></router-outlet>
-      </div> 
-
+	<div class='panel-heading'>
+	{{ settings }}
+	</div>
+<div class="panel-body">
+		<tabset> 
+		<tab title="AlgemeenSettings"> <algemeneSettings></algemeneSettings></tab>
+		<tab title="Signaleringen"> <signaleringenSettings></signaleringenSettings></tab>
+		<tab title="TemporaryUnitManager"><temporaryUnitmanagerSettings></temporaryUnitmanagerSettings> </tab>
+		</tabset>
+			
 </div>
+</div>
+
+

@@ -20,11 +20,7 @@ export class EmployeeDetailComponent implements OnInit{
   employee:IEmployee;
   private sub: any;
   errorMessage: string;
-    constructor(
-    private employeeService:EmployeeService ,
-    private route: ActivatedRoute,
-  
-  ) {}
+    constructor(private employeeService:EmployeeService ,private route: ActivatedRoute) {}
    ngOnInit(): void {
         this.sub = this.route.params.subscribe(
             params => {

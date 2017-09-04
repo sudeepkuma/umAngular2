@@ -12,7 +12,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import nl.sogeti.com.dao.AssignmentDAO;
 import nl.sogeti.com.dao.EmployeeDAO;
+import nl.sogeti.com.domain.Assignment;
 import nl.sogeti.com.domain.Employee;
 
 import org.json.JSONArray;
@@ -24,6 +26,8 @@ public class EmployeeService extends HttpServlet{
 
 @EJB
 EmployeeDAO employeeDAO;
+@EJB
+AssignmentDAO assignmentDao ;
 
 @GET
 @Path("/listOfEmployees")
@@ -33,6 +37,7 @@ public Response listOfEmployees(){
 	List<Employee> listOfEmployees = new ArrayList<Employee>();
 	listOfEmployees = this.employeeDAO.findAllEmployees();
 	JSONArray jsonArray = new JSONArray();
+	
 	
 	for(Employee emp : listOfEmployees)
 	{
@@ -59,11 +64,18 @@ public Response listOfEmployees(){
         jsnObj.put("VakantieBovenWettelijk", emp.getVakantieBovenWettelijk());
         jsnObj.put("LeaseAuto", emp.getLeaseCarName());
         jsnObj.put("LeaseCarAmount", emp.getLeaseAmount());
-        jsnObj.put("Einde_contract", emp.getEinde_contract());
-        
-		jsonArray.put(jsnObj);
-	}
+        jsnObj.put("Einde_contract", emp.getEinde_contract());             		
+    List<Assignment> assignments = assignmentDao.findAllAssignmentsByEmployeeId(emp.getId());
+        	for(Assignment assignment : assignments){
+        		if(assignment.getClient() != null){     	
+        			jsnObj.put("Client_Name", assignment.getClient().getName());
+        		}
+        	}
+        	jsonArray.put(jsnObj);
+	}       	
 	String responseJson = jsonArray.toString();
 	return Response.status(200).entity(responseJson).build();
 }
 }
+
+

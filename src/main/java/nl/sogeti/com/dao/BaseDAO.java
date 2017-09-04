@@ -23,6 +23,7 @@ import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -45,8 +46,10 @@ public class BaseDAO
 {
 
    /** The entity manager. */
-   @PersistenceContext(unitName = "data-unit")
-   private EntityManager entityManager;
+ 
+   
+   private EntityManager entityManager = Persistence.createEntityManagerFactory("data-unit").createEntityManager();
+  
 
    /**
     * Instantiates a new crud service.

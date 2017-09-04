@@ -5,11 +5,11 @@
                 
                     <!-- Nav tabs -->
     <tabset [pills]="true">
-        <tab title="Algemeen">
+        <tab title="Algemeen" class="tabDesign">
           <div class="tab-content">  <algemeen [employe]= "employee"></algemeen></div>
         </tab>
         <tab title="Inzet">
-            <div class="tab-content"><inzet></inzet></div>
+            <div class="tab-content"><inzet [employe] ="employee"></inzet></div>
         </tab>
         <tab title="Planning" >
             <div class="tab-content"> Content of the Planning Tab</div>
