@@ -1,13 +1,18 @@
 package nl.sogeti.com.service;
 
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServlet;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -17,12 +22,17 @@ import nl.sogeti.com.dao.EmployeeDAO;
 import nl.sogeti.com.domain.Assignment;
 import nl.sogeti.com.domain.Employee;
 
+import org.joda.time.DateTime;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
+
 
 @Path("employeeService")
-public class EmployeeService extends HttpServlet{
+public class EmployeeService extends HttpServlet implements Serializable{
 
 @EJB
 EmployeeDAO employeeDAO;
@@ -65,7 +75,7 @@ public Response listOfEmployees(){
         jsnObj.put("LeaseAuto", emp.getLeaseCarName());
         jsnObj.put("LeaseCarAmount", emp.getLeaseAmount());
         jsnObj.put("Einde_contract", emp.getEinde_contract());             		
-    List<Assignment> assignments = assignmentDao.findAllAssignmentsByEmployeeId(emp.getId());
+        List<Assignment> assignments = assignmentDao.findAllAssignmentsByEmployeeId(emp.getId());
         	for(Assignment assignment : assignments){
         		if(assignment.getClient() != null){     	
         			jsnObj.put("Client_Name", assignment.getClient().getName());
@@ -75,6 +85,27 @@ public Response listOfEmployees(){
 	}       	
 	String responseJson = jsonArray.toString();
 	return Response.status(200).entity(responseJson).build();
+}
+
+
+
+@POST
+@Path("/postttHere")
+@Consumes(MediaType.APPLICATION_JSON)
+public Response createTrackInJSON(String inzetdate) {
+	
+	Assignment assgn = new Assignment();
+	
+	String result = "Track saved : " + inzetdate;
+	System.out.println("Result is" + result);
+	JSONArray jsonArray = new JSONArray(inzetdate);
+	JSONObject jsonObject = jsonArray.getJSONObject(0);
+	String idValue = jsonObject.getString("id");
+	System.out.println("value is : "+ idValue);
+	String inzetDate = jsonObject.getString("inzetdate");
+	System.out.println("Date is "+ inzetDate);
+	
+	return Response.status(201).entity(result).build();
 }
 }
 

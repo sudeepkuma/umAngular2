@@ -69,6 +69,7 @@ public class AssignmentDAO
         List<Assignment> listOfAssignment = getEntityManager().createQuery("select e from Assignment e where e.employee = " + employeeId + " order by e.end", Assignment.class).setMaxResults(1).getResultList();
 		return listOfAssignment;
    }
+   
 
 
 

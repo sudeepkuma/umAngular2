@@ -5,7 +5,7 @@ webpackJsonp([1,4],{
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_employee_service__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_employee_service__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(279);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeeListComponent; });
@@ -82,7 +82,7 @@ AdminComponent = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_employee_service__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_employee_service__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(396);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
@@ -205,6 +205,7 @@ AlgemeneComponent = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(44);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InzetService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -212,20 +213,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var InzetService = (function () {
-    function InzetService() {
+    function InzetService(http) {
+        this.http = http;
+        this.inzetPost = 'http://localhost:8080/ngapp/rest/employeeService/postttHere';
     }
-    InzetService.prototype.callMe = function (dataIs) {
-        this.data = dataIs;
-        alert("inside service" + this.data);
+    InzetService.prototype.setInzetaData = function (inzetVandate, id) {
+        this.startDateTime = inzetVandate;
+        this.employee_id = id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var inzetData = [{ inzetdate: this.startDateTime, id: this.employee_id }];
+        this.http.post(this.inzetPost, inzetData, options)
+            .subscribe();
+        alert("inside service" + this.startDateTime + this.employee_id);
     };
     return InzetService;
 }());
 InzetService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === "function" && _a || Object])
 ], InzetService);
 
+var _a;
 //# sourceMappingURL=inzet.service.js.map
 
 /***/ }),
@@ -302,14 +319,14 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_tabs__ = __webpack_require__(378);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_tabs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_tabs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_routing__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_datepicker__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__index__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_services_employee_service__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_services_employee_service__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_services_inzet_service__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common__ = __webpack_require__(6);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
@@ -501,18 +518,20 @@ var InzetComponent = (function () {
     function InzetComponent(inzetService) {
         this.inzetService = inzetService;
         this.options = new __WEBPACK_IMPORTED_MODULE_2_ng2_datepicker__["b" /* DatePickerOptions */]();
-        this.options.format = "DD.MM.YYYY";
     }
     InzetComponent.prototype.ngOnInit = function () {
         this.dateSelected = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* FormControl */]();
         this.inzetData = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* FormGroup */]({
             dateSelected: this.dateSelected
         });
+        this.date = {
+            formatted: ''
+        };
     };
-    InzetComponent.prototype.handle = function (inzetValues) {
-        this.data = JSON.stringify(inzetValues.dateSelected);
-        this.inzetService.callMe(this.data);
-        //alert('Your date is '+  this.data)
+    InzetComponent.prototype.postDate = function (inzetValues, id) {
+        this.setdate = JSON.stringify((inzetValues.dateSelected.formatted));
+        this.id = JSON.stringify(id);
+        this.inzetService.setInzetaData(this.setdate, this.id);
     };
     return InzetComponent;
 }());
@@ -660,7 +679,7 @@ exports = module.exports = __webpack_require__(18)();
 
 
 // module
-exports.push([module.i, "\n.table-hover thead tr:hover th, .table-hover tbody tr:hover td {\n    background-color: lightgray;\n}\nthead{\n    background-color: \t\t\tblack;\n}\ntable, td, th {    \n    border: 1px solid #ddd;\n    text-align: left;\n    \n}\n\ntable {\n    border-collapse: collapse;\n    width: 100%;\n    height: 100%;\n}\n\nth, td {\n    padding: 15px;\n}\n .panel-heading {\n  background-color: #A93226;\n  height: 50%;\n}\n.container{\n     margin-top: 60px;\n}", ""]);
+exports.push([module.i, "\r\n.table-hover thead tr:hover th, .table-hover tbody tr:hover td {\r\n    background-color: lightgray;\r\n}\r\nthead{\r\n    background-color: \t\t\tblack;\r\n}\r\ntable, td, th {    \r\n    border: 1px solid #ddd;\r\n    text-align: left;\r\n    \r\n}\r\n\r\ntable {\r\n    border-collapse: collapse;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\nth, td {\r\n    padding: 15px;\r\n}\r\n .panel-heading {\r\n  background-color: #A93226;\r\n  height: 50%;\r\n}\r\n.container{\r\n     margin-top: 60px;\r\n}", ""]);
 
 // exports
 
@@ -678,7 +697,7 @@ exports = module.exports = __webpack_require__(18)();
 
 
 // module
-exports.push([module.i, ".content {\n     height: 100%; \n     width: 100%;\n   padding-bottom: 58px;\n}\n.tabset{\n   background-color: \ttomato;\n}\n.tabDesign{\n  background-color: \ttomato;\n}\n.tab-pills{\n  background-color: \ttomato;\n}\n.tab-content{\n  margin-top: 5px;\n    clear: none;\n}\n", ""]);
+exports.push([module.i, ".content {\r\n     height: 100%; \r\n     width: 100%;\r\n   padding-bottom: 58px;\r\n}\r\n.tabset{\r\n   background-color: \ttomato;\r\n}\r\n.tabDesign{\r\n  background-color: \ttomato;\r\n}\r\n.tab-pills{\r\n  background-color: \ttomato;\r\n}\r\n.tab-content{\r\n  margin-top: 5px;\r\n    clear: none;\r\n}\r\n", ""]);
 
 // exports
 
@@ -999,21 +1018,21 @@ webpackContext.id = 377;
 /***/ 379:
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n<nav-bar></nav-bar>\n<div class='container' >\n\t<router-outlet></router-outlet>\n</div>\n</div>\n"
+module.exports = "<div>\r\n<nav-bar></nav-bar>\r\n<div class='container' >\r\n\t<router-outlet></router-outlet>\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
 /***/ 380:
 /***/ (function(module, exports) {
 
-module.exports = "<div class='panel panel-primary'>\n\t\n\t<div class='panel-heading'>\n\t{{ pageTitle }}\n\t</div>\n\t\n\t<div class='panel-body'>\n\t\t\n\t\t<div class='row'>\n\t\t\t<div class='col-md-2'>Filter by Unit:</div>\n\t\t\t<div class='col-md-4'>\n\t\t\t\t<input type='text' />\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t<div class=\"row\"></div><br>\n\t\t\n\t\t<div class='table-responsive' style=\"overflow-x:auto;\">\n\t\t\t<table class=\"table table-striped table-hover table-responsive\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr style=\"color:white\">\n\t\t\t\t\t\t<th>Employee Number</th>\n\t\t\t\t\t\t<th>FirstName</th>\n\t\t\t\t\t\t<th>LastName</th>\n\t\t\t\t\t\t<th>DateOfBirth</th>\n\t\t\t\t\t\t<th>TelephoneNumber</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr *ngFor=\"let employ of employee\">\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Number}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Fname}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Lname}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.DOB | date}}</td>\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.TelphoneNo}}</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>\n\t\t\n\t</div>\n\n</div>"
+module.exports = "<div class='panel panel-primary'>\r\n\t\r\n\t<div class='panel-heading'>\r\n\t{{ pageTitle }}\r\n\t</div>\r\n\t\r\n\t<div class='panel-body'>\r\n\t\t\r\n\t\t<div class='row'>\r\n\t\t\t<div class='col-md-2'>Filter by Unit:</div>\r\n\t\t\t<div class='col-md-4'>\r\n\t\t\t\t<input type='text' />\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t\r\n\t\t<div class=\"row\"></div><br>\r\n\t\t\r\n\t\t<div class='table-responsive' style=\"overflow-x:auto;\">\r\n\t\t\t<table class=\"table table-striped table-hover table-responsive\">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr style=\"color:white\">\r\n\t\t\t\t\t\t<th>Employee Number</th>\r\n\t\t\t\t\t\t<th>FirstName</th>\r\n\t\t\t\t\t\t<th>LastName</th>\r\n\t\t\t\t\t\t<th>DateOfBirth</th>\r\n\t\t\t\t\t\t<th>TelephoneNumber</th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr *ngFor=\"let employ of employee\">\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Number}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Fname}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Lname}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.DOB | date}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.TelphoneNo}}</td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t</div>\r\n\t\t\r\n\t</div>\r\n\r\n</div>"
 
 /***/ }),
 
 /***/ 381:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\t<nav class=\"navbar navbar-default\">\n\t\t<div class='container-fluid'>\t\t\n\t\t\t<a class='navbar-brand' style=\"color: tomato;font-family: Arial, Helvetica, sans-serif;font-weight: bold\">{{pageTitle}}</a>\n\t\t\t\t\n\t\t\t<ul class='nav navbar-nav'>\n\t\t\t\t<li><a routerLink=\"/home\"><b style=\"color: black\">Home Page</b></a></li>\n\t\t\t\t<li><a routerLink=\"/settings\"><b style=\"color: black\">Instellingen</b></a></li>\n\t\t\t\t\t\n\t\t\t</ul>\n\n\t\t\t<ul class=\"nav navbar-nav navbar-right\">\n\t\t\t\t<li><a routerLink=\"/admin\"><span\n\t\t\t\t\t\tclass=\"glyphicon glyphicon-user\"></span><b style=\"color: black\"> Admin</b></a></li>\n\t\t\t\t<li><a href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span>\n\t\t\t\t\t\t<b style=\"color: black\">Sign Out</b></a></li>\n\t\t\t</ul>\n\n\t\t</div>\n\t</nav>\n</div>"
+module.exports = "<div class=\"container\">\r\n\t<nav class=\"navbar navbar-default\">\r\n\t\t<div class='container-fluid'>\t\t\r\n\t\t\t<a class='navbar-brand' style=\"color: tomato;font-family: Arial, Helvetica, sans-serif;font-weight: bold\">{{pageTitle}}</a>\r\n\t\t\t\t\r\n\t\t\t<ul class='nav navbar-nav'>\r\n\t\t\t\t<li><a routerLink=\"/home\"><b style=\"color: black\">Home Page</b></a></li>\r\n\t\t\t\t<li><a routerLink=\"/settings\"><b style=\"color: black\">Instellingen</b></a></li>\r\n\t\t\t\t\t\r\n\t\t\t</ul>\r\n\r\n\t\t\t<ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t\t<li><a routerLink=\"/admin\"><span\r\n\t\t\t\t\t\tclass=\"glyphicon glyphicon-user\"></span><b style=\"color: black\"> Admin</b></a></li>\r\n\t\t\t\t<li><a href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span>\r\n\t\t\t\t\t\t<b style=\"color: black\">Sign Out</b></a></li>\r\n\t\t\t</ul>\r\n\r\n\t\t</div>\r\n\t</nav>\r\n</div>"
 
 /***/ }),
 
@@ -1027,14 +1046,14 @@ module.exports = "<div class='panel panel-primary'>\n\t\n\t<div class='panel-hea
 /***/ 383:
 /***/ (function(module, exports) {
 
-module.exports = "<b style=\"color:black;font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: x-large\">{{employee.Fname}} &nbsp; {{employee.Lname}}</b>\n<div class=\"row\" style=\"border: 1px solid #F0F0F0\">\n    \n<div class=\"col-md-10\" style=\"border: 1px solid #F0F0F0\" >\n                \n                    <!-- Nav tabs -->\n    <tabset [pills]=\"true\">\n        <tab title=\"Algemeen\" class=\"tabDesign\">\n          <div class=\"tab-content\">  <algemeen [employe]= \"employee\"></algemeen></div>\n        </tab>\n        <tab title=\"Inzet\">\n            <div class=\"tab-content\"><inzet [employe] =\"employee\"></inzet></div>\n        </tab>\n        <tab title=\"Planning\" >\n            <div class=\"tab-content\"> Content of the Planning Tab</div>\n        </tab>\n        <tab title=\"SEI-Dialoog\" >\n            <div class=\"tab-content\"> Content of the SEI-Dialoog Tab</div>\n        </tab>\n        <tab title=\"GMI\" >\n             <div class=\"tab-content\">Content of the GMI Tab</div>\n        </tab>\n        <tab title=\"Gesprekken\" >\n            <div class=\"tab-content\"> Content of the Gesprekken Tab</div>\n        </tab>\n        <tab title=\"Acties\" >\n            <div class=\"tab-content\"> Content of the Acties Tab</div>\n        </tab>\n        <tab title=\"Document\" >\n             <div class=\"tab-content\">Content of the Document Tab</div>\n        </tab>\n    </tabset>           \n </div>\n\n <div class=\"col-md-2\" style=\"border: 1px solid black ; font-family: Arial, Helvetica, sans-serif\">\n     <img src=\"\" class=\"rounded mx-auto d-block \" alt=\"Responsive image\">\n    <h5>{{employee.Number}}</h5>\n    <h5>{{employee.Fname}}</h5>\n    <h5>{{employee.Lname}}</h5>\n    <h5>{{employee.TelphoneNo}}</h5>\n    <h5>{{employee.DOB | date}}</h5>\n\n </div>\n\n</div>\n\n               \n\n"
+module.exports = "<b style=\"color:black;font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: x-large\">{{employee.Fname}} &nbsp; {{employee.Lname}}</b>\r\n<div class=\"row\" style=\"border: 1px solid #F0F0F0\">\r\n    \r\n<div class=\"col-md-10\" style=\"border: 1px solid #F0F0F0\" >\r\n                \r\n                    <!-- Nav tabs -->\r\n    <tabset [pills]=\"true\">\r\n        <tab title=\"Algemeen\" class=\"tabDesign\">\r\n          <div class=\"tab-content\">  <algemeen [employe]= \"employee\"></algemeen></div>\r\n        </tab>\r\n        <tab title=\"Inzet\">\r\n            <div class=\"tab-content\"><inzet [employe] =\"employee\"></inzet></div>\r\n        </tab>\r\n        <tab title=\"Planning\" >\r\n            <div class=\"tab-content\"> Content of the Planning Tab</div>\r\n        </tab>\r\n        <tab title=\"SEI-Dialoog\" >\r\n            <div class=\"tab-content\"> Content of the SEI-Dialoog Tab</div>\r\n        </tab>\r\n        <tab title=\"GMI\" >\r\n             <div class=\"tab-content\">Content of the GMI Tab</div>\r\n        </tab>\r\n        <tab title=\"Gesprekken\" >\r\n            <div class=\"tab-content\"> Content of the Gesprekken Tab</div>\r\n        </tab>\r\n        <tab title=\"Acties\" >\r\n            <div class=\"tab-content\"> Content of the Acties Tab</div>\r\n        </tab>\r\n        <tab title=\"Document\" >\r\n             <div class=\"tab-content\">Content of the Document Tab</div>\r\n        </tab>\r\n    </tabset>           \r\n </div>\r\n\r\n <div class=\"col-md-2\" style=\"border: 1px solid black ; font-family: Arial, Helvetica, sans-serif\">\r\n     <img src=\"\" class=\"rounded mx-auto d-block \" alt=\"Responsive image\">\r\n    <h5>{{employee.Number}}</h5>\r\n    <h5>{{employee.Fname}}</h5>\r\n    <h5>{{employee.Lname}}</h5>\r\n    <h5>{{employee.TelphoneNo}}</h5>\r\n    <h5>{{employee.DOB | date}}</h5>\r\n\r\n </div>\r\n\r\n</div>\r\n\r\n               \r\n\r\n"
 
 /***/ }),
 
 /***/ 384:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <input type=\"button\" value=\"Nieuwe Opdracht\"/>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10\">    \r\n                <div class = \"panel panel-default\" style=\"margin-top: 5px\">\r\n                            <div class = \"panel-heading\">\r\n                                Opdracht\r\n                            </div>     \r\n                            <div class = \"panel-body\">  \r\n                                <form [formGroup]=\"inzetData\" (ngSubmit)=\"handle(inzetData.value)\">                                             \r\n                                <div class=\"col-md-2\" style=\"font-weight: bold;\">\r\n                                Inzet van:\r\n                                Gerealiseerd Uurtarief :\r\n                                Afwijking :\r\n                                </div>\r\n                                <div class=\"col-md-3\" style=\"font-weight: bold;\">   \r\n                                <div class=\"form-control\">                         \r\n                                    <ng2-datepicker formControlName=\"dateSelected\"  [options]=\"options\" [(ngModel)]=\"date\" ></ng2-datepicker>\r\n                                </div>\r\n                                </div>\r\n                                <div class=\"col-md-2\" style=\"font-weight: bold;\">\r\n                                   Inzet tot:\r\n                                   RichtTarief : \r\n                                </div> \r\n                                <div class=\"col-md-3\" style=\"font-weight: bold;\">\r\n                                   \t <!--<ng2-datepicker  [options]=\"options\" [(ngModel)]=\"dateTot\" ></ng2-datepicker>-->\r\n                                        RichValue                                                        \r\n                                </div>   \r\n                                      <button type=\"submit\" class=\"btn btn-primary\">Save</button>\r\n                                </form>                         \r\n                            </div>\r\n                            <div class = \"panel-heading\">\r\n                                Extra informatie over de opdracht\r\n                            </div>                  \r\n                            <div class = \"panel-body\"> \r\n                                <textarea value=\"Algemeen\"></textarea>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>            \r\n        <div class=\"row\">\r\n            <div class=\"col-md-5\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">Klant</div>\r\n                     <div class=\"panel-body\" >\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-2\">\r\n                                NAME:\r\n                            </div>\r\n                            <div class=\"col-md-2\">\r\n                                <input type=\"text\" value=\"{{employe.Client_Name}}\" >\r\n                            </div>\r\n                        </div>\r\n                     </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-5\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">Contact Gegevens</div>\r\n                    <div class=\"panel-body\">Panel Content2</div>\r\n                 </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n               <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">\r\n                        Opdrachtgeschiedenis\r\n                    </div>\r\n                    <div class=\"panel-body\">Panel Content2</div>\r\n                </div>\r\n            </div>\r\n        </div>  \r\n         \r\n</div>"
+module.exports = "<div class=\"container\">\r\n    <input type=\"button\" value=\"Nieuwe Opdracht\"/>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10\">    \r\n                <!-- <div class = \"panel panel-default\" style=\"margin-top: 5px\">\r\n                            <div class = \"panel-heading\">\r\n                                Opdracht\r\n                            </div>     \r\n                            <div class = \"panel-body\">  \r\n                                <form [formGroup]=\"inzetData\" (ngSubmit)=\"postDate(inzetData.value,employe.Id)\">                                             \r\n                                    <div class=\"col-md-3\" style=\"font-weight: bold;\">\r\n                                        <div class=\"row\">\r\n                                        Inzet van:\r\n                                        </div>\r\n                                        <div class=\"row\" style=\"padding-top: 8px\">\r\n                                        Gerealiseerd Uurtarief :\r\n                                        </div>\r\n                                        <div class=\"row\">\r\n                                        Afwijking :\r\n                                        </div>\r\n                                    </div>\r\n                                    <div class=\"col-md-3\">   \r\n                                        <div class=\"form-control\">                         \r\n                                            <ng2-datepicker formControlName=\"dateSelected\"  [options]=\"options\" [(ngModel)]=\"date.formatted\"></ng2-datepicker>\r\n                                        </div>\r\n                                    </div>\r\n                                    <div class=\"col-md-2\" style=\"font-weight: bold;\">\r\n                                        Inzet tot:\r\n                                        RichtTarief : \r\n                                     </div> \r\n                                    <div class=\"col-md-2\">\r\n                                   \t <ng2-datepicker  [options]=\"options\" [(ngModel)]=\"dateTot\" ></ng2-datepicker>\r\n                                        RichValue                                                        \r\n                                    </div>   \r\n                                      <button type=\"submit\" class=\"btn btn-primary\">Save</button>\r\n                                </form>                         \r\n                            </div>\r\n                            <div class = \"panel-heading\">\r\n                                Extra informatie over de opdracht\r\n                            </div>                  \r\n                            <div class = \"panel-body\"> \r\n                                <textarea value=\"Algemeen\"></textarea>\r\n                            </div>\r\n                        </div> -->\r\n                        <div class=\"panel panel-default\" style=\"width: 98.3333%; height: 300px;margin-top:5px\">\r\n                        <div class = \"panel-heading\">\r\n                                Opdracht\r\n                            </div> \r\n\t\t\t\t\t<div class=\"panel-body\" style=\"width: 98.3333%; height: 450px\">\r\n\r\n\t\t\t\t\t\t<div class=\"container\">\r\n\t\t\t\t\t\t<form [formGroup]=\"inzetData\" (ngSubmit)=\"postDate(inzetData.value,employe.Id)\">  \r\n\t\t\t\t\t\t\t<table style=\"height:100%\" >\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t<tbody style=\"height:100%\">\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"4%\" height=\"25\" style=\"font-weight: bold;\">Inzet\r\n\t\t\t\t\t\t\t\t\t\tvan:</td>\r\n\t\t\t\t\t\t\t\t\t<td width=\"3%\" height=\"25\" >\r\n\t\t\t\t\t\t\t\t\t<ng2-datepicker formControlName=\"dateSelected\" [options]=\"options\" [(ngModel)]=\"date.formatted\"></ng2-datepicker></td>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"6%\" height=\"25\" style=\"font-weight: bold;\">Inzet\r\n\t\t\t\t\t\t\t\t\t\ttot:</td>\r\n\t\t\t\t\t\t\t\t\t<td width=\"18%\" height=\"25\" > <ng2-datepicker  [options]=\"options\" [(ngModel)]=\"dateTot\" ></ng2-datepicker></td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"1%\" height=\"25\" style=\"font-weight: bold;\">Gerealiseerd\r\n\t\t\t\t\t\t\t\t\t\tUurtarief :</td>\r\n\t\t\t\t\t\t\t\t\t<td height=\"25\"></td>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"1%\" height=\"25\" style=\"font-weight: bold;\">\r\n\t\t\t\t\t\t\t\t\t\tRichtTarief : :</td>\r\n\t\t\t\t\t\t\t\t\t<td height=\"25\" ></td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"1%\" height=\"25\" style=\"font-weight: bold;\">  Afwijking :</td>\r\n\t\t\t\t\t\t\t\t\t<td height=\"25\" ></td>\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t\t</table>\r\n\t\t\t\t\t\t\t<div class = \"panel-heading\">\r\n                                Extra informatie over de opdracht\r\n                            </div> \r\n                            <div class = \"panel-body\"> \r\n                                <textarea value=\"Algemeen\"></textarea>\r\n                            </div>\r\n                            <td><button type=\"submit\" class=\"btn btn-primary\">Save</button></td>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n                        \r\n                        \r\n                    </div>\r\n                </div>            \r\n        <div class=\"row\">\r\n            <div class=\"col-md-5\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">Klant</div>\r\n                     <div class=\"panel-body\" >\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-2\">\r\n                                NAME:\r\n                            </div>\r\n                            <div class=\"col-md-2\">\r\n                                <input type=\"text\" value=\"{{employe.Client_Name}}\" >\r\n                            </div>\r\n                        </div>\r\n                     </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-5\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">Contact Gegevens</div>\r\n                    <div class=\"panel-body\">Panel Content2</div>\r\n                 </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n               <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">\r\n                        Opdrachtgeschiedenis\r\n                    </div>\r\n                    <div class=\"panel-body\">Panel Content2</div>\r\n                </div>\r\n            </div>\r\n        </div>  \r\n         \r\n</div>"
 
 /***/ }),
 
@@ -1081,12 +1100,12 @@ module.exports = __webpack_require__(294);
 
 /***/ }),
 
-/***/ 61:
+/***/ 62:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__(279);
@@ -1152,7 +1171,7 @@ var EmployeeService = (function () {
 }());
 EmployeeService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === "function" && _a || Object])
 ], EmployeeService);
 
 var _a;

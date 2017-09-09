@@ -14,31 +14,29 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class InzetComponent{
     inzetData:FormGroup
     dateSelected:FormControl
-     date: DateModel; 
-     options: DatePickerOptions;
-     data:string
+    date: any; 
+    options: DatePickerOptions;
+    setdate:string
+    id:string
  
  ngOnInit(){
         this.dateSelected = new FormControl()
         this.inzetData=new FormGroup({
-        dateSelected:this.dateSelected        
+        dateSelected:this.dateSelected             
         })
+        this.date={
+            formatted:''
+        };       
     }
-
-  constructor(private inzetService:InzetService) {
-      
-    this.options = new DatePickerOptions();
-    this.options.format="DD.MM.YYYY";
-    
-  }
-    
+  constructor(private inzetService:InzetService) {   
+    this.options = new DatePickerOptions();   
+  }  
      @Input() public employe: IEmployee;
 
-        handle(inzetValues){
-         this.data =JSON.stringify(inzetValues.dateSelected)
-            this.inzetService.callMe(this.data);
-         //alert('Your date is '+  this.data)
-           
+        postDate(inzetValues,id){
+         this.setdate=   JSON.stringify((inzetValues.dateSelected.formatted))
+         this.id=JSON.stringify(id);
+         this.inzetService.setInzetaData(this.setdate,this.id);      
         }
   
 
