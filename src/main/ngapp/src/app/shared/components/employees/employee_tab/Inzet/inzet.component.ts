@@ -58,14 +58,12 @@ constructor(private inzetService:InzetService ,private route :ActivatedRoute) {
             });
         this.inzetService.getInzetData(this.inzetId).subscribe(  
             inn => this.inn = inn,
-            error =>  this.errorMessage = <any>error)
-            alert('data in service is'+ this.inn.Client_Name);  
+            error =>  this.errorMessage = <any>error) 
     }
     postDate(inzetValues,id){
          this.setdate=JSON.stringify((inzetValues.dateSelected.formatted))
          this.inzetTot=JSON.stringify((inzetValues.dateInzetTot.formatted))
          this.id=JSON.stringify(id);
-         alert("data is "+ this.setdate + this.inzetTot + this.id)
          this.inzetService.setInzetaData(this.setdate,this.inzetTot,this.id);      
         }
 

@@ -46,7 +46,7 @@ export class EmployeeDetailComponent implements OnInit{
         employee => this.employee = employee,
         error => this.errorMessage = <any>error
       );
-        alert("Employee called"+ this.employee.Fname )
+       
     }
 
 
