@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { IEmployee } from '../shared/models/employee';
 import { EmployeeService } from '../shared/services/employee.service';
+import {EmployeeDetailComponent} from '../shared/components/employees/employee-detail.component';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -14,6 +15,7 @@ import 'rxjs/add/operator/toPromise';
 export class EmployeeListComponent implements OnInit {
     pageTitle: string = 'List Of Employees';
     employee : IEmployee[];
+    
     errorMessage : string;
     
     constructor( private _employeeService: EmployeeService ) { }

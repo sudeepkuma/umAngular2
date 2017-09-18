@@ -13,10 +13,9 @@ export class EmployeeService {
     employees: IEmployee[];
     detailOfEmployee: IEmployee;
     private employeesUrl = 'http://localhost:8080/ngapp/rest/employeeService/listOfEmployees';
-    private employeeDetail = 'http://localhost:8080/ngapp/rest/employeeService/employee';
 
     constructor( private http: Http ) { }
-
+    
     getEmployees(): Observable<IEmployee[]> {
         return this.http.get( this.employeesUrl )
             .map(( response: Response ) => {
@@ -30,6 +29,7 @@ export class EmployeeService {
 
    getEmployee(Id: number): Observable<IEmployee> {
         if (this.employees) {
+
             //filter using cached data
             return this.findEmployeeObservable(Id);
         } 
@@ -41,6 +41,7 @@ export class EmployeeService {
  
     private filterEmployees(id: number): IEmployee {
         const custs = this.employees.filter((cust) => cust.Id === id );
+        alert("cu"+custs[0]);
         return (custs.length) ? custs[0] : null;
     }
  
@@ -54,4 +55,5 @@ export class EmployeeService {
     private handleError( error: any ) {
         return Observable.throw( error.json().error || 'Server error' );
     }
+    
     }

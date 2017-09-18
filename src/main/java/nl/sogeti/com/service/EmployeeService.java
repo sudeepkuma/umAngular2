@@ -1,10 +1,7 @@
 package nl.sogeti.com.service;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -13,22 +10,19 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import nl.sogeti.com.dao.AssignmentDAO;
 import nl.sogeti.com.dao.EmployeeDAO;
+import nl.sogeti.com.dao.GradeDAO;
 import nl.sogeti.com.domain.Assignment;
 import nl.sogeti.com.domain.Employee;
 
-import org.joda.time.DateTime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonReader;
 
 
 @Path("employeeService")
@@ -38,6 +32,9 @@ public class EmployeeService extends HttpServlet implements Serializable{
 EmployeeDAO employeeDAO;
 @EJB
 AssignmentDAO assignmentDao ;
+
+@EJB
+GradeDAO gradeDao;
 
 @GET
 @Path("/listOfEmployees")
@@ -74,13 +71,20 @@ public Response listOfEmployees(){
         jsnObj.put("VakantieBovenWettelijk", emp.getVakantieBovenWettelijk());
         jsnObj.put("LeaseAuto", emp.getLeaseCarName());
         jsnObj.put("LeaseCarAmount", emp.getLeaseAmount());
-        jsnObj.put("Einde_contract", emp.getEinde_contract());             		
+        jsnObj.put("Einde_contract", emp.getEinde_contract());
+		jsnObj.put("Uurtareif",emp.getTargetHourlyRate()) ;            		
         List<Assignment> assignments = assignmentDao.findAllAssignmentsByEmployeeId(emp.getId());
         	for(Assignment assignment : assignments){
         		if(assignment.getClient() != null){     	
         			jsnObj.put("Client_Name", assignment.getClient().getName());
+        			jsnObj.put("Description", assignment.getDescription());
         		}
+        		
+        		
         	}
+        	long employeeNumber =this.gradeDao.find(Employee.class, emp.getId()).getNumber();
+    		int richttariefValue= this.gradeDao.calculatedRichttariefvalue(employeeNumber);
+    		jsnObj.put("RichttariefValue", richttariefValue);
         	jsonArray.put(jsnObj);
 	}       	
 	String responseJson = jsonArray.toString();
@@ -88,11 +92,10 @@ public Response listOfEmployees(){
 }
 
 
-
 @POST
 @Path("/postttHere")
 @Consumes(MediaType.APPLICATION_JSON)
-public Response createTrackInJSON(String inzetdate) {
+public Response setInzetData(String inzetdate) {
 	
 	Assignment assgn = new Assignment();
 	
@@ -101,11 +104,35 @@ public Response createTrackInJSON(String inzetdate) {
 	JSONArray jsonArray = new JSONArray(inzetdate);
 	JSONObject jsonObject = jsonArray.getJSONObject(0);
 	String idValue = jsonObject.getString("id");
+	long employeeId = Long.parseLong(idValue);
 	System.out.println("value is : "+ idValue);
-	String inzetDate = jsonObject.getString("inzetdate");
-	System.out.println("Date is "+ inzetDate);
+	String inzetvan = jsonObject.getString("inzetdate");
+	String inzetTot = jsonObject.getString("inzetTot");
+	System.out.println("Date is "+ inzetvan);
+
 	
 	return Response.status(201).entity(result).build();
+}
+
+@GET
+@Path("/inzet/{id}")
+@Produces(MediaType.APPLICATION_JSON)
+public Response getInzetData(@PathParam("id") long employeeId ){
+	JSONArray jsonArray = new JSONArray();
+	JSONObject jsnObj = new JSONObject();
+	
+	List<Assignment> assignments = assignmentDao.findAllAssignmentsByEmployeeId(employeeId);
+ 	for(Assignment assignment : assignments){
+ 		if(assignment.getClient() != null){     	
+ 			jsnObj.put("Client_Name", assignment.getClient().getName());
+ 		}
+ 		long employeeNumber =this.gradeDao.find(Employee.class, employeeId).getNumber();
+ 		int richttariefValue= this.gradeDao.calculatedRichttariefvalue(employeeNumber);
+ 		jsnObj.put("RichttariefValue",richttariefValue);
+ 	}
+ 	jsonArray.put(jsnObj);
+ 	String responseJson = jsonArray.toString();
+	return Response.status(201).entity(responseJson).build();
 }
 }
 

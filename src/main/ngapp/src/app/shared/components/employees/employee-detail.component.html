@@ -1,4 +1,12 @@
-<b style="color:black;font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: x-large">{{employee.Fname}} &nbsp; {{employee.Lname}}</b>
+<b style="color:black;font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: x-large">
+    {{employee.Fname}} &nbsp; {{employee.Lname}}
+</b>
+
+<select   (input) ="OnInput($event)" >
+  <option *ngFor="let e of employees" value="{{e.Id}}" >{{e.Fname}}
+  </option>
+</select>
+
 <div class="row" style="border: 1px solid #F0F0F0">
     
 <div class="col-md-10" style="border: 1px solid #F0F0F0" >

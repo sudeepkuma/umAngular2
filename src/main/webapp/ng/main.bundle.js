@@ -5,7 +5,7 @@ webpackJsonp([1,4],{
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_employee_service__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_employee_service__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(279);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeeListComponent; });
@@ -82,8 +82,8 @@ AdminComponent = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_employee_service__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_employee_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(396);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeeDetailComponent; });
@@ -104,6 +104,9 @@ var EmployeeDetailComponent = (function () {
     function EmployeeDetailComponent(employeeService, route) {
         this.employeeService = employeeService;
         this.route = route;
+        this.multiple = true;
+        this.myPlaceholderText = 'Select an option';
+        this.canClearSelect = true;
     }
     EmployeeDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -111,10 +114,22 @@ var EmployeeDetailComponent = (function () {
             var id = +params['Id'];
             _this.getEmployee(id);
         });
+        this.employeeService.getEmployees()
+            .subscribe(function (employee) { return _this.employees = employee; }, function (error) { return _this.errorMessage = error; });
     };
     EmployeeDetailComponent.prototype.getEmployee = function (id) {
         var _this = this;
+        alert("id is" + id);
         this.employeeService.getEmployee(id).subscribe(function (employee) { return _this.employee = employee; }, function (error) { return _this.errorMessage = error; });
+        alert("Employee called" + this.employee.Fname);
+    };
+    EmployeeDetailComponent.prototype.OnInput = function ($event) {
+        $event.preventDefault();
+        //this.employeeService.getEmployee($event.target.value).
+        //);subscribe(
+        //  employee => this.employee = employee,
+        //  error => this.errorMessage = <any>error
+        alert("Value passed is" + $event.target.value);
     };
     return EmployeeDetailComponent;
 }());
@@ -122,7 +137,7 @@ EmployeeDetailComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'employee-detail',
         template: __webpack_require__(383),
-        styles: [__webpack_require__(372)]
+        styles: [__webpack_require__(372)],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_employee_service__["a" /* EmployeeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_employee_service__["a" /* EmployeeService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object])
 ], EmployeeDetailComponent);
@@ -206,6 +221,8 @@ AlgemeneComponent = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InzetService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -218,22 +235,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var InzetService = (function () {
     function InzetService(http) {
         this.http = http;
         this.inzetPost = 'http://localhost:8080/ngapp/rest/employeeService/postttHere';
+        this.inzetGet = 'http://localhost:8080/ngapp/rest/employeeService/inzet/';
     }
-    InzetService.prototype.setInzetaData = function (inzetVandate, id) {
+    InzetService.prototype.setInzetaData = function (inzetVandate, inzetTot, id) {
         this.startDateTime = inzetVandate;
         this.employee_id = id;
+        this.inzetTot = inzetTot;
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({
             'Content-Type': 'application/json'
         });
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
-        var inzetData = [{ inzetdate: this.startDateTime, id: this.employee_id }];
+        var inzetData = [{ inzetdate: this.startDateTime, inzetTot: this.inzetTot, id: this.employee_id }];
         this.http.post(this.inzetPost, inzetData, options)
             .subscribe();
         alert("inside service" + this.startDateTime + this.employee_id);
+    };
+    InzetService.prototype.getInzetData = function (id) {
+        var _this = this;
+        return this.http.get(this.inzetGet + id)
+            .map(function (response) {
+            _this.inzet = response.json();
+            return _this.inzet;
+        }).catch(this.handleError);
+    };
+    InzetService.prototype.handleError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || 'Server error');
     };
     return InzetService;
 }());
@@ -326,7 +357,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_datepicker__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__index__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_services_employee_service__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_services_employee_service__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_services_inzet_service__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common__ = __webpack_require__(6);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
@@ -373,7 +404,7 @@ AppModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_page_employee_list_component__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_components_settings_settings_component__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_components_admin_admin_component__ = __webpack_require__(140);
@@ -499,6 +530,7 @@ NavBar = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_datepicker__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_inzet_service__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(45);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InzetComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -514,24 +546,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var InzetComponent = (function () {
-    function InzetComponent(inzetService) {
+    function InzetComponent(inzetService, route) {
         this.inzetService = inzetService;
+        this.route = route;
         this.options = new __WEBPACK_IMPORTED_MODULE_2_ng2_datepicker__["b" /* DatePickerOptions */]();
+        this.inzet = this.employe;
     }
     InzetComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.dateSelected = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* FormControl */]();
+        this.dateInzetTot = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* FormControl */]();
         this.inzetData = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* FormGroup */]({
-            dateSelected: this.dateSelected
+            dateSelected: this.dateSelected,
+            dateInzetTot: this.dateInzetTot
         });
         this.date = {
             formatted: ''
         };
+        this.dateTot = {
+            formatted: ''
+        };
+        this.route.params.subscribe(function (params) {
+            _this.inzetId = +params['Id'];
+        });
+        this.inzetService.getInzetData(this.inzetId).subscribe(function (inn) { return _this.inn = inn; }, function (error) { return _this.errorMessage = error; });
+        alert('data in service is' + this.inn.Client_Name);
     };
     InzetComponent.prototype.postDate = function (inzetValues, id) {
         this.setdate = JSON.stringify((inzetValues.dateSelected.formatted));
+        this.inzetTot = JSON.stringify((inzetValues.dateInzetTot.formatted));
         this.id = JSON.stringify(id);
-        this.inzetService.setInzetaData(this.setdate, this.id);
+        alert("data is " + this.setdate + this.inzetTot + this.id);
+        this.inzetService.setInzetaData(this.setdate, this.inzetTot, this.id);
     };
     return InzetComponent;
 }());
@@ -542,13 +590,15 @@ __decorate([
 InzetComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'inzet',
+        providers: [{ provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["LOCALE_ID"],
+                useValue: "nl-NL" }],
         template: __webpack_require__(384),
         styles: [__webpack_require__(373)]
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_inzet_service__["a" /* InzetService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_inzet_service__["a" /* InzetService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_inzet_service__["a" /* InzetService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_inzet_service__["a" /* InzetService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object])
 ], InzetComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=inzet.component.js.map
 
 /***/ }),
@@ -697,7 +747,7 @@ exports = module.exports = __webpack_require__(18)();
 
 
 // module
-exports.push([module.i, ".content {\r\n     height: 100%; \r\n     width: 100%;\r\n   padding-bottom: 58px;\r\n}\r\n.tabset{\r\n   background-color: \ttomato;\r\n}\r\n.tabDesign{\r\n  background-color: \ttomato;\r\n}\r\n.tab-pills{\r\n  background-color: \ttomato;\r\n}\r\n.tab-content{\r\n  margin-top: 5px;\r\n    clear: none;\r\n}\r\n", ""]);
+exports.push([module.i, ".content {\r\n     height: 100%; \r\n     width: 100%;\r\n   padding-bottom: 58px;\r\n}\r\n.tabset{\r\n   background-color: \ttomato;\r\n}\r\n.tabDesign{\r\n  background-color: \ttomato;\r\n}\r\n.tab-pills{\r\n  background-color: \ttomato;\r\n}\r\n.tab-content{\r\n  margin-top: 5px;\r\n    clear: none;\r\n}\r\n.select{\r\nwidth: 8px;\r\n}", ""]);
 
 // exports
 
@@ -1025,7 +1075,7 @@ module.exports = "<div>\r\n<nav-bar></nav-bar>\r\n<div class='container' >\r\n\t
 /***/ 380:
 /***/ (function(module, exports) {
 
-module.exports = "<div class='panel panel-primary'>\r\n\t\r\n\t<div class='panel-heading'>\r\n\t{{ pageTitle }}\r\n\t</div>\r\n\t\r\n\t<div class='panel-body'>\r\n\t\t\r\n\t\t<div class='row'>\r\n\t\t\t<div class='col-md-2'>Filter by Unit:</div>\r\n\t\t\t<div class='col-md-4'>\r\n\t\t\t\t<input type='text' />\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t\r\n\t\t<div class=\"row\"></div><br>\r\n\t\t\r\n\t\t<div class='table-responsive' style=\"overflow-x:auto;\">\r\n\t\t\t<table class=\"table table-striped table-hover table-responsive\">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr style=\"color:white\">\r\n\t\t\t\t\t\t<th>Employee Number</th>\r\n\t\t\t\t\t\t<th>FirstName</th>\r\n\t\t\t\t\t\t<th>LastName</th>\r\n\t\t\t\t\t\t<th>DateOfBirth</th>\r\n\t\t\t\t\t\t<th>TelephoneNumber</th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr *ngFor=\"let employ of employee\">\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Number}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Fname}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Lname}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.DOB | date}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.TelphoneNo}}</td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t</div>\r\n\t\t\r\n\t</div>\r\n\r\n</div>"
+module.exports = "<div class='panel panel-primary'>\r\n\t\r\n\t<div class='panel-heading'>\r\n\t{{ pageTitle }}\r\n\t</div>\r\n\r\n\t\r\n\t<div class='panel-body'>\r\n\t\t\r\n\t\t<div class='row'>\r\n\t\t\t<div class='col-md-2'>Filter by Unit:</div>\r\n\t\t\t<div class='col-md-4'>\r\n\t\t\t\t<input type='text' />\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t\r\n\t\t<div class=\"row\"></div><br>\r\n\t\t\r\n\t\t<div class='table-responsive' style=\"overflow-x:auto;\">\r\n\t\t\t<table class=\"table table-striped table-hover table-responsive\">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr style=\"color:white\">\r\n\t\t\t\t\t\t<th>Employee Number</th>\r\n\t\t\t\t\t\t<th>FirstName</th>\r\n\t\t\t\t\t\t<th>LastName</th>\r\n\t\t\t\t\t\t<th>DateOfBirth</th>\r\n\t\t\t\t\t\t<th>TelephoneNumber</th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr *ngFor=\"let employ of employee\">\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Number}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Fname}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.Lname}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.DOB | date}}</td>\r\n\t\t\t\t\t\t<td a [routerLink]=\"['/details',employ.Id]\">{{employ.TelphoneNo}}</td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t</div>\r\n\t\t\r\n\t</div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -1046,14 +1096,14 @@ module.exports = "<div class='panel panel-primary'>\n\t\n\t<div class='panel-hea
 /***/ 383:
 /***/ (function(module, exports) {
 
-module.exports = "<b style=\"color:black;font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: x-large\">{{employee.Fname}} &nbsp; {{employee.Lname}}</b>\r\n<div class=\"row\" style=\"border: 1px solid #F0F0F0\">\r\n    \r\n<div class=\"col-md-10\" style=\"border: 1px solid #F0F0F0\" >\r\n                \r\n                    <!-- Nav tabs -->\r\n    <tabset [pills]=\"true\">\r\n        <tab title=\"Algemeen\" class=\"tabDesign\">\r\n          <div class=\"tab-content\">  <algemeen [employe]= \"employee\"></algemeen></div>\r\n        </tab>\r\n        <tab title=\"Inzet\">\r\n            <div class=\"tab-content\"><inzet [employe] =\"employee\"></inzet></div>\r\n        </tab>\r\n        <tab title=\"Planning\" >\r\n            <div class=\"tab-content\"> Content of the Planning Tab</div>\r\n        </tab>\r\n        <tab title=\"SEI-Dialoog\" >\r\n            <div class=\"tab-content\"> Content of the SEI-Dialoog Tab</div>\r\n        </tab>\r\n        <tab title=\"GMI\" >\r\n             <div class=\"tab-content\">Content of the GMI Tab</div>\r\n        </tab>\r\n        <tab title=\"Gesprekken\" >\r\n            <div class=\"tab-content\"> Content of the Gesprekken Tab</div>\r\n        </tab>\r\n        <tab title=\"Acties\" >\r\n            <div class=\"tab-content\"> Content of the Acties Tab</div>\r\n        </tab>\r\n        <tab title=\"Document\" >\r\n             <div class=\"tab-content\">Content of the Document Tab</div>\r\n        </tab>\r\n    </tabset>           \r\n </div>\r\n\r\n <div class=\"col-md-2\" style=\"border: 1px solid black ; font-family: Arial, Helvetica, sans-serif\">\r\n     <img src=\"\" class=\"rounded mx-auto d-block \" alt=\"Responsive image\">\r\n    <h5>{{employee.Number}}</h5>\r\n    <h5>{{employee.Fname}}</h5>\r\n    <h5>{{employee.Lname}}</h5>\r\n    <h5>{{employee.TelphoneNo}}</h5>\r\n    <h5>{{employee.DOB | date}}</h5>\r\n\r\n </div>\r\n\r\n</div>\r\n\r\n               \r\n\r\n"
+module.exports = "<b style=\"color:black;font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: x-large\">\r\n    {{employee.Fname}} &nbsp; {{employee.Lname}}\r\n</b>\r\n\r\n<select   (input) =\"OnInput($event)\" >\r\n  <option *ngFor=\"let e of employees\" value=\"{{e.Id}}\" >{{e.Fname}}\r\n  </option>\r\n</select>\r\n\r\n<div class=\"row\" style=\"border: 1px solid #F0F0F0\">\r\n    \r\n<div class=\"col-md-10\" style=\"border: 1px solid #F0F0F0\" >\r\n                \r\n                    <!-- Nav tabs -->\r\n    <tabset [pills]=\"true\">\r\n        <tab title=\"Algemeen\" class=\"tabDesign\">\r\n          <div class=\"tab-content\">  <algemeen [employe]= \"employee\"></algemeen></div>\r\n        </tab>\r\n        <tab title=\"Inzet\">\r\n            <div class=\"tab-content\"><inzet [employe] =\"employee\"></inzet></div>\r\n        </tab>\r\n        <tab title=\"Planning\" >\r\n            <div class=\"tab-content\"> Content of the Planning Tab</div>\r\n        </tab>\r\n        <tab title=\"SEI-Dialoog\" >\r\n            <div class=\"tab-content\"> Content of the SEI-Dialoog Tab</div>\r\n        </tab>\r\n        <tab title=\"GMI\" >\r\n             <div class=\"tab-content\">Content of the GMI Tab</div>\r\n        </tab>\r\n        <tab title=\"Gesprekken\" >\r\n            <div class=\"tab-content\"> Content of the Gesprekken Tab</div>\r\n        </tab>\r\n        <tab title=\"Acties\" >\r\n            <div class=\"tab-content\"> Content of the Acties Tab</div>\r\n        </tab>\r\n        <tab title=\"Document\" >\r\n             <div class=\"tab-content\">Content of the Document Tab</div>\r\n        </tab>\r\n    </tabset>           \r\n </div>\r\n\r\n <div class=\"col-md-2\" style=\"border: 1px solid black ; font-family: Arial, Helvetica, sans-serif\">\r\n     <img src=\"\" class=\"rounded mx-auto d-block \" alt=\"Responsive image\">\r\n    <h5>{{employee.Number}}</h5>\r\n    <h5>{{employee.Fname}}</h5>\r\n    <h5>{{employee.Lname}}</h5>\r\n    <h5>{{employee.TelphoneNo}}</h5>\r\n    <h5>{{employee.DOB | date}}</h5>\r\n\r\n </div>\r\n\r\n</div>\r\n\r\n               \r\n\r\n"
 
 /***/ }),
 
 /***/ 384:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <input type=\"button\" value=\"Nieuwe Opdracht\"/>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10\">    \r\n                        <div class=\"panel panel-default\" style=\"width: 98.3333%; height: 300px;margin-top:5px\">\r\n                        <div class = \"panel-heading\">\r\n                                Opdracht\r\n                            </div> \r\n\t\t\t\t\t<div class=\"panel-body\" style=\"width: 98.3333%; height: 450px\">\r\n\r\n\t\t\t\t\t\t<div class=\"container\">\r\n\t\t\t\t\t\t<form [formGroup]=\"inzetData\" (ngSubmit)=\"postDate(inzetData.value,employe.Id)\">  \r\n\t\t\t\t\t\t\t<table style=\"height:100%\" >\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t<tbody style=\"height:100%\">\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"4%\" height=\"25\" style=\"font-weight: bold;\">Inzet\r\n\t\t\t\t\t\t\t\t\t\tvan:</td>\r\n\t\t\t\t\t\t\t\t\t<td width=\"3%\" height=\"25\" >\r\n\t\t\t\t\t\t\t\t\t<ng2-datepicker formControlName=\"dateSelected\" [options]=\"options\" [(ngModel)]=\"date.formatted\"></ng2-datepicker></td>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"6%\" height=\"25\" style=\"font-weight: bold;\">Inzet\r\n\t\t\t\t\t\t\t\t\t\ttot:</td>\r\n\t\t\t\t\t\t\t\t\t<td width=\"18%\" height=\"25\" > <ng2-datepicker  [options]=\"options\" [(ngModel)]=\"dateTot\" ></ng2-datepicker></td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"1%\" height=\"25\" style=\"font-weight: bold;\">Gerealiseerd\r\n\t\t\t\t\t\t\t\t\t\tUurtarief :</td>\r\n\t\t\t\t\t\t\t\t\t<td height=\"25\"></td>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"1%\" height=\"25\" style=\"font-weight: bold;\">\r\n\t\t\t\t\t\t\t\t\t\tRichtTarief : :</td>\r\n\t\t\t\t\t\t\t\t\t<td height=\"25\" ></td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"1%\" height=\"25\" style=\"font-weight: bold;\">  Afwijking :</td>\r\n\t\t\t\t\t\t\t\t\t<td height=\"25\" ></td>\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t\t</table>\r\n\t\t\t\t\t\t\t<div class = \"panel-heading\">\r\n                                Extra informatie over de opdracht\r\n                            </div> \r\n                            <div class = \"panel-body\"> \r\n                                <textarea value=\"Algemeen\"></textarea>\r\n                            </div>\r\n                            <td><button type=\"submit\" class=\"btn btn-primary\">Save</button></td>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n                        \r\n                        \r\n                    </div>\r\n                </div>            \r\n        <div class=\"row\">\r\n            <div class=\"col-md-5\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">Klant</div>\r\n                     <div class=\"panel-body\" >\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-2\">\r\n                                NAME:\r\n                            </div>\r\n                            <div class=\"col-md-2\">\r\n                                <input type=\"text\" value=\"{{employe.Client_Name}}\" >\r\n                            </div>\r\n                        </div>\r\n                     </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-5\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">Contact Gegevens</div>\r\n                    <div class=\"panel-body\">Panel Content2</div>\r\n                 </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n               <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">\r\n                        Opdrachtgeschiedenis\r\n                    </div>\r\n                    <div class=\"panel-body\">Panel Content2</div>\r\n                </div>\r\n            </div>\r\n        </div>  \r\n         \r\n</div>"
+module.exports = "<div class=\"container\">\r\n    <input type=\"button\" value=\"Nieuwe Opdracht\"/>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10\">    \r\n                        <div class=\"panel panel-default\" style=\"width: 98.3333%; height: 300px;margin-top:5px\">\r\n                        <div class = \"panel-heading\">\r\n                                Opdracht\r\n                            </div> \r\n\t\t\t\t\t<div class=\"panel-body\" style=\"width: 98.3333%; height: 450px\">\r\n\r\n\t\t\t\t\t\t<div class=\"container\">\r\n\t\t\t\t\t\t<form [formGroup]=\"inzetData\" (ngSubmit)=\"postDate(inzetData.value,employe.Id)\">  \r\n\t\t\t\t\t\t\t<table style=\"height:100%\" >\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t<tbody style=\"height:100%\">\r\n\t\t\t\t\t\t\t\t    <tr>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"4%\" height=\"25\" style=\"font-weight: bold;\">Inzet\r\n\t\t\t\t\t\t\t\t\t\tvan:</td>\r\n\t\t\t\t\t\t\t\t\t<td width=\"3%\" height=\"25\" >\r\n                                    <ng2-datepicker formControlName=\"dateSelected\" [options]=\"options\" [(ngModel)]=\"date.formatted\"></ng2-datepicker>\r\n                                    </td>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"6%\" height=\"25\" style=\"font-weight: bold;\">Inzet tot:</td>\r\n\t\t\t\t\t\t\t\t\t<td width=\"18%\" height=\"25\" > \r\n                                    <ng2-datepicker formControlName=\"dateInzetTot\" [options]=\"options\" [(ngModel)]=\"dateTot.formatted\" ></ng2-datepicker></td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"1%\" height=\"25\" style=\"font-weight: bold;\">Gerealiseerd\r\n\t\t\t\t\t\t\t\t\t\tUurtarief :</td>\r\n\t\t\t\t\t\t\t\t\t<td height=\"25\"  >{{employe.Uurtareif}}</td>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"1%\" height=\"25\" style=\"font-weight: bold;\">\r\n\t\t\t\t\t\t\t\t\t\tRichtTarief : </td>\r\n\t\t\t\t\t\t\t\t\t<td height=\"25\" *ngFor=\"let inzet of inn\">{{inzet.RichttariefValue}}</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<td scope=\"row\" width=\"1%\" height=\"25\" style=\"font-weight: bold;\">  Afwijking :</td>\r\n\t\t\t\t\t\t\t\t\t<td height=\"25\" ></td>\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t\t</table>\r\n\t\t\t\t\t\t\t<div class = \"panel-heading\" style=\"font-weight:bold\">\r\n                                Extra informatie over de opdracht\r\n                            </div> \r\n                            <div class = \"panel-body\" > \r\n                                <textarea value=\"Algemeen\">{{employe.Description}}</textarea>\r\n                            </div>\r\n                            <td><button type=\"submit\" class=\"btn btn-primary\">Save</button></td>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>    \r\n                    </div>\r\n                </div>            \r\n        <div class=\"row\">\r\n            <div class=\"col-md-5\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">Klant</div>\r\n                     <div class=\"panel-body\" >\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-2\">\r\n                                NAME:\r\n                            </div>\r\n                            <div class=\"col-md-2\" *ngFor=\"let inzet of inn\">\r\n                                <input type=\"text\" value=\"{{inzet.Client_Name}}\">\r\n                            </div>\r\n                        </div>\r\n                     </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-5\">\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">Contact Gegevens</div>\r\n                    <div class=\"panel-body\">Panel Content2</div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n               <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\" style=\"font-weight: bold;font-family: Arial, Helvetica, sans-serif\">\r\n                        Opdrachtgeschiedenis\r\n                    </div>\r\n                    <div class=\"panel-body\">Panel Content2</div>\r\n                </div>\r\n            </div>\r\n        </div>      \r\n</div>"
 
 /***/ }),
 
@@ -1100,7 +1150,7 @@ module.exports = __webpack_require__(294);
 
 /***/ }),
 
-/***/ 62:
+/***/ 63:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1134,7 +1184,6 @@ var EmployeeService = (function () {
     function EmployeeService(http) {
         this.http = http;
         this.employeesUrl = 'http://localhost:8080/ngapp/rest/employeeService/listOfEmployees';
-        this.employeeDetail = 'http://localhost:8080/ngapp/rest/employeeService/employee';
     }
     EmployeeService.prototype.getEmployees = function () {
         var _this = this;
@@ -1156,6 +1205,7 @@ var EmployeeService = (function () {
     };
     EmployeeService.prototype.filterEmployees = function (id) {
         var custs = this.employees.filter(function (cust) { return cust.Id === id; });
+        alert("cu" + custs[0]);
         return (custs.length) ? custs[0] : null;
     };
     EmployeeService.prototype.createObservable = function (data) {

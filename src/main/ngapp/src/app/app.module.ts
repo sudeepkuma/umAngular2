@@ -15,6 +15,7 @@ import { EmployeeService, } from './shared/services/employee.service';
 import { InzetService } from './shared/services/inzet.service';
 import { DatePipe } from '@angular/common';
 
+
 @NgModule({
   declarations: [AppComponent,EmployeeListComponent,EmployeeListComponent, SettingComponent,
                  AdminComponent,NavBar,AlgemeneComponent,EmployeeDetailComponent,AlgemeenSettingComponent,
@@ -22,6 +23,7 @@ import { DatePipe } from '@angular/common';
                 ],
   imports: [BrowserModule,FormsModule,HttpModule,routing,TabsModule,ReactiveFormsModule,NgbModule.forRoot(),DatePickerModule],
   providers: [EmployeeService,DatePipe,InzetService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
