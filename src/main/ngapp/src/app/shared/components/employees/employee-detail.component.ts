@@ -6,7 +6,7 @@ import { IEmployee } from '../../models/employee';
 import { EmployeeListComponent } from '../../../home-page/employee-list.component'; 
 import {AlgemeenSettingComponent} from './employee_tab/algemeen-setting/algemeen-setting.component';
 import {InzetComponent} from './employee_tab/Inzet/inzet.component';
-
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'employee-detail',
@@ -26,7 +26,9 @@ export class EmployeeDetailComponent implements OnInit{
     multiple: boolean = true;
     myPlaceholderText: string = 'Select an option';
     canClearSelect: boolean = true;
-    constructor(private employeeService:EmployeeService ,private route: ActivatedRoute) {}
+    constructor(private employeeService:EmployeeService ,private route: ActivatedRoute,private sanitizer: DomSanitizer) {
+        this.sanitizer = sanitizer;
+    } 
    ngOnInit(): void {
         this.sub = this.route.params.subscribe(
             params => {
@@ -48,8 +50,15 @@ export class EmployeeDetailComponent implements OnInit{
       );
        
     }
-
-
+    
+  //  photoURL() {
+     //   let imagePath = this.employee.Image_path;
+    //    return this.sanitizer.bypassSecurityTrustUrl('file:/'+imagePath);
+      //  employee => this.employee = employee,
+      //  error => this.errorMessage = <any>error
+      
+      //  } 
+        
     OnInput($event){
     $event.preventDefault();
     //this.employeeService.getEmployee($event.target.value).

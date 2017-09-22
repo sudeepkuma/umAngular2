@@ -17,10 +17,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class InzetComponent{
     inzetData:FormGroup
     dateSelected:FormControl
-    dateInzetTot:FormControl
+    dateInzetTot:FormControl;
     date: any; 
     dateTot:any;
-    inzetTot:string
+    inzetTot:string;
     options: DatePickerOptions;
     setdate:string;
     id:string;
