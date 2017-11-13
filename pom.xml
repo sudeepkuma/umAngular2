@@ -95,11 +95,11 @@
 			<artifactId>openpojo</artifactId>
 			<version>${version.openpojo}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>${version.postgres}</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>

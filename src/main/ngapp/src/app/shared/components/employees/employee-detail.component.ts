@@ -43,7 +43,7 @@ export class EmployeeDetailComponent implements OnInit{
     }
  
     getEmployee(id: number) {
-        alert("id is"+ id)
+       // alert("id is"+ id)
         this.employeeService.getEmployee(id).subscribe(
         employee => this.employee = employee,
         error => this.errorMessage = <any>error
